@@ -1,0 +1,105 @@
+# ADMINISTRACIÓN DE PROCESOS
+
+## Códigos para checar los procesos activos
+
+-   Listar procesos del actual usuario
+
+```{bash, eval=FALSE}
+ps
+```
+
+-   Listar todos los procesos del sistema
+
+```{bash, eval=FALSE}
+ps -p
+```
+
+-   Listar más detalles
+
+```{bash}
+ps -ef | head -n 3
+```
+
+Podemos distinguir pid (id del proceso), time (tiempo acumulado), CMD (comando o proceso), stime (tiempo de inicio), [] proceso llevado por kernel o sistema y en caso de no por los ususarios.
+
+Para terminar un proceso hay que identificar el pid o nombre del proceso y usar el comando kill, con el argumento g se forza el cierre:
+
+```{bash, eval=FALSE}
+sudo kill 950
+```
+
+```{bash, eval=FALSE}
+sudo kill g sshd
+```
+
+## CRON
+
+Cron es un servicio para programar tareas:
+
+|m | h | dom | mon | dow | user |command|
+|------|------|------|------|------|------|------|
+|17 |*  |  * |* |*|   root  |  cd / && run-parts --report /etc/cron.hourly
+|25| 6  |  * | * | *|   root    |test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+|47 |6|    * | * | 7  | root|    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+|52 |6  |  1 | * | *  | root|    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+
+- m : minutos (0-59)
+- h : horas  (0-23)
+- dom : day of the month/ día del mes (1-31)
+- mon : mes (1-12 or jan, feb, mar....)
+- dow : day of the week/ días de la semana (0-6: sunday 0 or 7, or sun,mon, tue...)
+- user: nombre de ususario
+- command: comando a ser ejecutado
+
+Códigos para modificar tareas programadas:
+
+```{bash, eval= FALSE}
+crontab -e #agregar
+```
+
+
+```{bash, eval= FALSE}
+cronta -r #remover
+```
+
+
+```{bash, eval= FALSE}
+crontab -l #listar
+```
+
+## Verificar nombre del sistema y modificarlo
+
+- Ver nombre del sistema
+```{bash, eval=FALSE}
+hostname
+```
+
+- Cambiar nombre del sistema o servidor
+```{bash, eval=FALSE}
+sudo hostname ctl set-hostname Nuevo_nombre
+sudo nano /etc/hostname
+```
+
+- Reiniciar sistema
+```{bash, eval=FALSE}
+sudo reboot
+```
+
+## Verificar y cambiar zona horaria
+
+- Verificar zona horaria
+```{bash}
+timedatectl
+```
+
+- Buscar con grep zona horaria de preferencia
+```{bash}
+timedatectl list-timezones | grep Mexico
+```
+
+- Cambiar zona horaria
+```{bash, eval= FALSE}
+sudo timedatectl set-timezone América/Mexico_City
+
+```
+

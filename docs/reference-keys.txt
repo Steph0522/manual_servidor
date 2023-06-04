@@ -1,0 +1,7 @@
+virtualización-e-instalación-de-redhatalmarockycentos
+pasos-para-instalar-distribución-en-máquina-virtual
+administración-de-procesos
+códigos-para-checar-los-procesos-activos
+cron
+verificar-nombre-del-sistema-y-modificarlo
+verificar-y-cambiar-zona-horaria

@@ -1,0 +1,28 @@
+# VIRTUALIZACIÓN E INSTALACIÓN DE REDHAT/ALMA/ROCKY/CENTOS
+
+
+## Pasos para instalar distribución en máquina virtual
+
+1. Instalar virtual box dependiendo del sistema operativo: https://www.virtualbox.org/wiki/Downloads
+
+2. Descargar la imagen iso de la distribución deseada, por ejemplo de alma linux: https://mirrors.almalinux.org/isos.html, centOS: http://isoredirect.centos.org/centos/7/isos/x86_64/
+
+3. Dar en 'New' y agregar el archivo .iso luego seguir las instrucciones. Establecer RAM y especio para la máquina virtual, nombre y demases (para Alma escoger tipo Redhat64bit)
+
+4. Instalación de la distribución: 
+
+- Escoger Lenguuaje (Español/México) > Continuar
+- Destino (por defecto)
+- Escoger red y nombre de sistema (enps03) > Encender
+- Hora y fecha del sistema (México Central)
+- Contaseña ususario Root y crear ususario administrador 
+- Selección Software (Instalación mínima)
+- Emepezar instalación y una vez adentro entrar con las credenciales del ususario administrador
+
+Tips:
+
+- Evitar usar el Root user, preferiblemente desde el usuario administrador y con sudo
+- El uso de virtualización para implementación de servidores Linux es conisderada como una buena práctica en términos de seguridad.
+
+
+

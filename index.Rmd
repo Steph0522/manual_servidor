@@ -1,0 +1,15 @@
+---
+title: "Manual administrador de Servidores"
+author: "Stephanie Hereira-Pacheco"
+site: bookdown::bookdown_site
+documentclass: book
+url: 'https://comunidadbioinfo.github.io/templado_bookdown/'
+github-repo: "comunidadbioinfo/templado_bookdown"
+output:
+  bookdown::gitbook: default
+  
+---
+
+# Prefacio {-}
+
+Este libro comenzó como las notas tomadas de cursos y materiales para la administración de servidores en linux, aún en desarollo.
