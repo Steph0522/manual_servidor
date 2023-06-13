@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 ADMINISTRACIÓN DE USUAARIOS, GRUPOS Y PERMISOS | Manual administrador de Servidores</title>
+  <meta name="description" content="4 ADMINISTRACIÓN DE USUAARIOS, GRUPOS Y PERMISOS | Manual administrador de Servidores" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 ADMINISTRACIÓN DE USUAARIOS, GRUPOS Y PERMISOS | Manual administrador de Servidores" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="comunidadbioinfo/templado_bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 ADMINISTRACIÓN DE USUAARIOS, GRUPOS Y PERMISOS | Manual administrador de Servidores" />
+  
+  
+  
+
+<meta name="author" content="Stephanie Hereira-Pacheco" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="administración-remota-del-sistema.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="virtualización-e-instalación-de-redhatalmarockycentos.html"><a href="virtualización-e-instalación-de-redhatalmarockycentos.html"><i class="fa fa-check"></i><b>1</b> VIRTUALIZACIÓN E INSTALACIÓN DE REDHAT/ALMA/ROCKY/CENTOS</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="virtualización-e-instalación-de-redhatalmarockycentos.html"><a href="virtualización-e-instalación-de-redhatalmarockycentos.html#pasos-para-instalar-distribución-en-máquina-virtual"><i class="fa fa-check"></i><b>1.1</b> Pasos para instalar distribución en máquina virtual</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html"><i class="fa fa-check"></i><b>2</b> ADMINISTRACIÓN DE PROCESOS</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#códigos-para-checar-los-procesos-activos"><i class="fa fa-check"></i><b>2.1</b> Códigos para checar los procesos activos</a></li>
+<li class="chapter" data-level="2.2" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#cron"><i class="fa fa-check"></i><b>2.2</b> CRON</a></li>
+<li class="chapter" data-level="2.3" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#verificar-nombre-del-sistema-y-modificarlo"><i class="fa fa-check"></i><b>2.3</b> Verificar nombre del sistema y modificarlo</a></li>
+<li class="chapter" data-level="2.4" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#verificar-y-cambiar-zona-horaria"><i class="fa fa-check"></i><b>2.4</b> Verificar y cambiar zona horaria</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="administración-remota-del-sistema.html"><a href="administración-remota-del-sistema.html"><i class="fa fa-check"></i><b>3</b> ADMINISTRACIÓN REMOTA DEL SISTEMA</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="administración-remota-del-sistema.html"><a href="administración-remota-del-sistema.html#ssh"><i class="fa fa-check"></i><b>3.1</b> SSH</a></li>
+<li class="chapter" data-level="3.2" data-path="administración-remota-del-sistema.html"><a href="administración-remota-del-sistema.html#scp-secure-copy-protocol"><i class="fa fa-check"></i><b>3.2</b> SCP (Secure copy protocol)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="administración-de-usuaarios-grupos-y-permisos.html"><a href="administración-de-usuaarios-grupos-y-permisos.html"><i class="fa fa-check"></i><b>4</b> ADMINISTRACIÓN DE USUAARIOS, GRUPOS Y PERMISOS</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="administración-de-usuaarios-grupos-y-permisos.html"><a href="administración-de-usuaarios-grupos-y-permisos.html#usuarios"><i class="fa fa-check"></i><b>4.1</b> USUARIOS</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="administración-de-usuaarios-grupos-y-permisos.html"><a href="administración-de-usuaarios-grupos-y-permisos.html#creando-usuarios-nuevos"><i class="fa fa-check"></i><b>4.1.1</b> CREANDO USUARIOS NUEVOS</a></li>
+<li class="chapter" data-level="4.1.2" data-path="administración-de-usuaarios-grupos-y-permisos.html"><a href="administración-de-usuaarios-grupos-y-permisos.html#modificando-cuentas-de-usuario"><i class="fa fa-check"></i><b>4.1.2</b> MODIFICANDO CUENTAS DE USUARIO</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="administración-de-usuaarios-grupos-y-permisos.html"><a href="administración-de-usuaarios-grupos-y-permisos.html#permisos-en-linux"><i class="fa fa-check"></i><b>4.2</b> PERMISOS EN LINUX</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="administración-de-usuaarios-grupos-y-permisos.html"><a href="administración-de-usuaarios-grupos-y-permisos.html#método-numérico"><i class="fa fa-check"></i><b>4.2.1</b> Método numérico</a></li>
+<li class="chapter" data-level="4.2.2" data-path="administración-de-usuaarios-grupos-y-permisos.html"><a href="administración-de-usuaarios-grupos-y-permisos.html#método-simbólico"><i class="fa fa-check"></i><b>4.2.2</b> Método simbólico</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Manual administrador de Servidores</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="administración-de-usuaarios-grupos-y-permisos" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> ADMINISTRACIÓN DE USUAARIOS, GRUPOS Y PERMISOS<a href="administración-de-usuaarios-grupos-y-permisos.html#administración-de-usuaarios-grupos-y-permisos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="usuarios" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> USUARIOS<a href="administración-de-usuaarios-grupos-y-permisos.html#usuarios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Existen varios comandos que nos permiten ubicarnos en qué usuario estamos ubicados e incluso en qué sistema operativo operamos y sus características.</p>
+<p>Por ejemplo este comando te dice que usuario eres:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">whoami</span></span></code></pre></div>
+<pre><code>## yendi</code></pre>
+<p>Si queremos saber información sobre nuestro sistema, versión, arquitectura y demás:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uname</span> <span class="at">-a</span></span></code></pre></div>
+<pre><code>## Linux yendi 5.4.0-149-generic #166~18.04.1-Ubuntu SMP Fri Apr 21 16:42:44 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux</code></pre>
+<p>Ahora, propiamente para conocer la información sobre nuestro usuario, en qué grupo nos encontramos y demás, usamos:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span></span></code></pre></div>
+<pre><code>## uid=1000(yendi) gid=1000(yendi) groups=1000(yendi),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),116(lpadmin),126(sambashare)</code></pre>
+<p>uid= identificador de usuario (este será del número 1000 en adelante, los de 1000 para abajo están reservados para el sistema). gid= identificador del grupo principal, cada ususario que creamos puede encontrarse en varios grupos y al crearse por defecto se creará un grupo nuevo (también de 1000 en adelante) a no ser que se indique manualmente este id. groups= grupos a los que pertenece, dependiendo de esto tendrá o no permisos para algunas funciones del sistema. Por ejemplo, aquí el gripo <em>adm</em> indica que tiene privilegios administrativos y <em>sudo</em> que tiene permisos de superusuario, en el caso de CentOS o Alma (red-hat) el grupo <em>wheel</em> tiene privilegios especiales, como la capacidad de ejecutar comandos como superusuario o administrador del sistema.</p>
+<p>Para revisar los ususarios del sistema y los grupos usamos los siguientes códigos:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> /etc/passwd</span></code></pre></div>
+<pre><code>## hplip:x:118:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+## geoclue:x:119:124::/var/lib/geoclue:/usr/sbin/nologin
+## gnome-initial-setup:x:120:65534::/run/gnome-initial-setup/:/bin/false
+## gdm:x:121:125:Gnome Display Manager:/var/lib/gdm3:/bin/false
+## yendi:x:1000:1000:yendi,,,:/home/yendi:/bin/bash
+## nvidia-persistenced:x:122:127:NVIDIA Persistence Daemon,,,:/nonexistent:/sbin/nologin
+## rstudio-server:x:999:999::/home/rstudio-server:/bin/sh
+## lightdm:x:123:129:Light Display Manager:/var/lib/lightdm:/bin/false
+## sshd:x:124:65534::/run/sshd:/usr/sbin/nologin
+## dhcpd:x:125:131::/var/run:/usr/sbin/nologin</code></pre>
+<p>En este vemos el id, gid, el directorio donde estará ubicado y el shell. Para ver los grupos y sus ususarios:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> /etc/group</span></code></pre></div>
+<pre><code>## gdm:x:125:
+## yendi:x:1000:
+## sambashare:x:126:yendi
+## nvidia-persistenced:x:127:
+## rdma:x:128:
+## rstudio-server:x:999:
+## lightdm:x:129:
+## nopasswdlogin:x:130:
+## dhcpd:x:131:
+## vboxusers:x:132:</code></pre>
+<p>Hay otros archivos que se instalar con el sistema operativo ubicados en el home (no visibles, así que tienen un <em>.</em> antes del nombre) que pueden ser visualizados y/o modificados según se necesite.</p>
+<ul>
+<li><p><em>.bashrc</em>: Este archivo se ejecuta cada vez que se inicia una nueva sesión de Bash. Contiene configuraciones y variables de entorno personalizadas para el usuario, como alias de comandos, variables de ambiente, configuraciones de color, etc. Cada usuario puede tener su propio archivo .bashrc en su directorio de inicio (~/.bashrc), lo que permite personalizar su entorno de shell.</p></li>
+<li><p><em>.bash_profile</em>: Es similar a .bashrc, pero se ejecuta solo en el inicio de sesión del usuario (cuando se inicia sesión en el sistema). Se utiliza principalmente para configuraciones y tareas que deben realizarse una vez al iniciar sesión, como cargar variables de entorno, definir rutas, iniciar servicios, etc. Si existe el archivo .bash_profile, Bash lo ejecutará en lugar de .bashrc durante el inicio de sesión.</p></li>
+<li><p><em>.bash_logout</em>: Este archivo se ejecuta cuando el usuario cierra la sesión. Puede contener comandos o tareas que deben realizarse antes de finalizar la sesión, como guardar el historial de comandos, limpiar temporales, notificar al usuario, etc.</p></li>
+<li><p><em>.bash_history</em>: Es un archivo que registra el historial de comandos ejecutados por el usuario en el shell de Bash. Cada vez que se ejecuta un comando, se agrega una entrada al archivo .bash_history. Permite al usuario acceder al historial de comandos anteriores utilizando la tecla de flecha hacia arriba o mediante comandos como history.</p></li>
+</ul>
+<p>Estos archivos son parte del entorno de configuración y registro de Bash y pueden variar según el sistema operativo y la configuración del usuario. Proporcionan una manera de personalizar y controlar el comportamiento del shell de Bash para adaptarlo a las necesidades del usuario.</p>
+<div id="creando-usuarios-nuevos" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> CREANDO USUARIOS NUEVOS<a href="administración-de-usuaarios-grupos-y-permisos.html#creando-usuarios-nuevos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Creando un usuario con los parámetros por defecto (uid asignado nuevo, gid asignado nuevo, bash y directorio en home con el mismo nombre).</li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd usuario1</span></code></pre></div>
+<ul>
+<li>Crear una contraseña para nuevo usuario</li>
+</ul>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> passwd usuario1</span></code></pre></div>
+<ul>
+<li>Creando un nuevo usuario pero con paráemtros establecidos asignadole un <em>-u</em> (userid), <em>-g</em> (gid) <em>-m -d</em> directorio de trabajo y <em>-s</em> un shell.</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd <span class="at">-u</span> 2000 <span class="at">-g</span> 1000 <span class="at">-m</span> <span class="at">-d</span> /home/usuario2 <span class="at">-s</span> /bin/bash usuario2</span></code></pre></div>
+<ul>
+<li>Crear un usuario para un proceso pero sin acceso.</li>
+</ul>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd <span class="at">-s</span> /sbin/nologin usuario3</span></code></pre></div>
+<ul>
+<li>Creando un usuario nuevo asignadolo a un grupo</li>
+</ul>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd <span class="at">-G</span> wheel usuario4</span></code></pre></div>
+</div>
+<div id="modificando-cuentas-de-usuario" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> MODIFICANDO CUENTAS DE USUARIO<a href="administración-de-usuaarios-grupos-y-permisos.html#modificando-cuentas-de-usuario" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Cambiar el directorio de un usuario</li>
+</ul>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-m</span> <span class="at">-d</span> /home/user1 usuario1</span></code></pre></div>
+<ul>
+<li>Cambiar el shell de un usuario</li>
+</ul>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-s</span> /sbin/nologin/ usuario2</span></code></pre></div>
+<ul>
+<li>Cambiar el login name de un usuario</li>
+</ul>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb46-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-l</span> user2 usuario2</span></code></pre></div>
+<ul>
+<li>Agregar adicionalmente un usuario a un grupo ya definido (sin sacarlo de los grupos donde se encuentre)</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-a</span> <span class="at">-G</span> 1000 usuario6</span></code></pre></div>
+<ul>
+<li>Asignar un nuevo grupo principal a un usuario (ojo! el grupo se conservará pero el usuario ya no estará en ese grupo).</li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-g</span> 1000 usuario3</span></code></pre></div>
+<ul>
+<li>Eliminar un grupo (vacío)</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> groupdel usuario3</span></code></pre></div>
+<ul>
+<li>Eliminar un usuario</li>
+</ul>
+<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> userdel usuario4</span></code></pre></div>
+<ul>
+<li>Remover un usuario de un grupo en específico</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gpasswd <span class="at">-d</span> usuario5 admon</span></code></pre></div>
+<p>Con los codigos vistos previamente podemos estar seguros de los cambios previamente realizados:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> /cat/etc/passwd</span>
+<span id="cb52-2"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> /cat/etc/group</span></code></pre></div>
+</div>
+</div>
+<div id="permisos-en-linux" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> PERMISOS EN LINUX<a href="administración-de-usuaarios-grupos-y-permisos.html#permisos-en-linux" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Los permisos constan de una cadena de 9 caracteres, de los cuales, los 3 primeros son permisos de usuario actual, los 3 siguientes los permisos de los usuario pertenecientes al mismo grupo del usuario actual y los tres últimos los permisos para todos los usuarios.</p>
+<p>Este se hace con el código <code>chmod</code> .</p>
+<p>Los pérmisos pueden ser de:</p>
+<ul>
+<li>r = reading (lectura, apertura de archivos y directorios)</li>
+<li>w = writting (escritura, modficiación de archivos)</li>
+<li>x = executing (ejecución, poner en marcha programas)</li>
+</ul>
+<p>Existen dos métodos para administrar permisos: un método numérico y otro simbólico.</p>
+<div id="método-numérico" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Método numérico<a href="administración-de-usuaarios-grupos-y-permisos.html#método-numérico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<thead>
+<tr class="header">
+<th align="center">r</th>
+<th align="center">w</th>
+<th align="center">x</th>
+<th align="center">código numérico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><strong>0</strong></td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center"><strong>1</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center"><strong>2</strong></td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"><strong>3</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center"><strong>4</strong></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center"><strong>5</strong></td>
+</tr>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center"><strong>6</strong></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"><strong>7</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Entonces si utilizas el número 7 estarás concediendo permiso de lectura, escritura y ejecución a quién lo desees.</p>
+<p>Ejemplo:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb53-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 777 .</span></code></pre></div>
+<p>En este ejemplo estás dando permiso de los tres tipos a todos los usuarios (ususario actual, grupos y otros) del directorio actual.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 750 .</span></code></pre></div>
+<p>En este ejemplo estás dando permiso de los tres tipos a todos los usuarios del directorio actual al usuario actual, permiso de lectura y ejecución a los del mismo grupo y ningún permiso a otro usuario externo.</p>
+</div>
+<div id="método-simbólico" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Método simbólico<a href="administración-de-usuaarios-grupos-y-permisos.html#método-simbólico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para este método se usará g para grupos, o para otros y a para todos , + si es permiso concedido y - si es denegado.</p>
+<p>Por ejemplo, queremos darle permiso del presente directorio a los ususario de migrupo, permisos de lectura y ejecución:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb55-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> g+rx</span></code></pre></div>
+<p>o darselo a otros:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb56-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> o+rx</span></code></pre></div>
+<p>o remover permisos a los de tu grupo y a otros:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb57-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> g-rw,o-r</span></code></pre></div>
+<p>o a todos:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb58-1"><a href="administración-de-usuaarios-grupos-y-permisos.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="ex">a-rwx</span></span></code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="administración-remota-del-sistema.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

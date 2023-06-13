@@ -1,0 +1,210 @@
+# ADMINISTRACIÓN DE USUARIOS, GRUPOS Y PERMISOS
+
+## USUARIOS
+
+Existen varios comandos que nos permiten ubicarnos en qué usuario estamos ubicados e incluso en qué sistema operativo operamos y sus características.
+
+Por ejemplo este comando te dice que usuario eres:
+
+```{bash}
+whoami
+```
+
+Si queremos saber información sobre nuestro sistema, versión, arquitectura y demás:
+
+```{bash}
+uname -a
+```
+
+Ahora, propiamente para conocer la información sobre nuestro usuario, en qué grupo nos encontramos y demás, usamos:
+
+```{bash}
+id
+```
+
+uid= identificador de usuario (este será del número 1000 en adelante, los de 1000 para abajo están reservados para el sistema). gid= identificador del grupo principal, cada ususario que creamos puede encontrarse en varios grupos y al crearse por defecto se creará un grupo nuevo (también de 1000 en adelante) a no ser que se indique manualmente este id. groups= grupos a los que pertenece, dependiendo de esto tendrá o no permisos para algunas funciones del sistema. Por ejemplo, aquí el gripo *adm* indica que tiene privilegios administrativos y *sudo* que tiene permisos de superusuario, en el caso de CentOS o Alma (red-hat) el grupo *wheel* tiene privilegios especiales, como la capacidad de ejecutar comandos como superusuario o administrador del sistema.
+
+Para revisar los ususarios del sistema y los grupos usamos los siguientes códigos:
+
+```{bash}
+tail /etc/passwd
+```
+
+En este vemos el id, gid, el directorio donde estará ubicado y el shell. Para ver los grupos y sus ususarios:
+
+```{bash}
+tail /etc/group
+```
+
+Hay otros archivos que se instalar con el sistema operativo ubicados en el home (no visibles, así que tienen un *.* antes del nombre) que pueden ser visualizados y/o modificados según se necesite.
+
+-   *.bashrc*: Este archivo se ejecuta cada vez que se inicia una nueva sesión de Bash. Contiene configuraciones y variables de entorno personalizadas para el usuario, como alias de comandos, variables de ambiente, configuraciones de color, etc. Cada usuario puede tener su propio archivo .bashrc en su directorio de inicio (\~/.bashrc), lo que permite personalizar su entorno de shell.
+
+-   *.bash_profile*: Es similar a .bashrc, pero se ejecuta solo en el inicio de sesión del usuario (cuando se inicia sesión en el sistema). Se utiliza principalmente para configuraciones y tareas que deben realizarse una vez al iniciar sesión, como cargar variables de entorno, definir rutas, iniciar servicios, etc. Si existe el archivo .bash_profile, Bash lo ejecutará en lugar de .bashrc durante el inicio de sesión.
+
+-   *.bash_logout*: Este archivo se ejecuta cuando el usuario cierra la sesión. Puede contener comandos o tareas que deben realizarse antes de finalizar la sesión, como guardar el historial de comandos, limpiar temporales, notificar al usuario, etc.
+
+-   *.bash_history*: Es un archivo que registra el historial de comandos ejecutados por el usuario en el shell de Bash. Cada vez que se ejecuta un comando, se agrega una entrada al archivo .bash_history. Permite al usuario acceder al historial de comandos anteriores utilizando la tecla de flecha hacia arriba o mediante comandos como history.
+
+Estos archivos son parte del entorno de configuración y registro de Bash y pueden variar según el sistema operativo y la configuración del usuario. Proporcionan una manera de personalizar y controlar el comportamiento del shell de Bash para adaptarlo a las necesidades del usuario.
+
+### CREANDO USUARIOS NUEVOS
+
+-   Creando un usuario con los parámetros por defecto (uid asignado nuevo, gid asignado nuevo, bash y directorio en home con el mismo nombre).
+
+```{bash, eval=FALSE}
+sudo useradd usuario1
+```
+
+-   Crear una contraseña para nuevo usuario
+
+```{bash, eval=FALSE}
+sudo passwd usuario1
+```
+
+-   Creando un nuevo usuario pero con paráemtros establecidos asignadole un *-u* (userid), *-g* (gid) *-m -d* directorio de trabajo y *-s* un shell.
+
+```{bash, eval=FALSE}
+sudo useradd -u 2000 -g 1000 -m -d /home/usuario2 -s /bin/bash usuario2
+```
+
+-   Crear un usuario para un proceso pero sin acceso.
+
+```{bash, eval=FALSE}
+sudo useradd -s /sbin/nologin usuario3
+```
+
+-   Creando un usuario nuevo asignadolo a un grupo
+
+```{bash, eval=FALSE}
+sudo useradd -G wheel usuario4
+```
+
+### MODIFICANDO CUENTAS DE USUARIO
+
+-   Cambiar el directorio de un usuario
+
+```{bash, eval=FALSE}
+sudo usermod -m -d /home/user1 usuario1
+```
+
+-   Cambiar el shell de un usuario
+
+```{bash, eval=FALSE}
+sudo usermod -s /sbin/nologin/ usuario2
+```
+
+-   Cambiar el login name de un usuario
+
+```{bash, eval=FALSE}
+sudo usermod -l user2 usuario2
+```
+
+-   Agregar adicionalmente un usuario a un grupo ya definido (sin sacarlo de los grupos donde se encuentre)
+
+```{bash, eval=FALSE}
+sudo usermod -a -G 1000 usuario6
+```
+
+-   Asignar un nuevo grupo principal a un usuario (ojo! el grupo se conservará pero el usuario ya no estará en ese grupo).
+
+```{bash, eval=FALSE}
+sudo usermod -g 1000 usuario3
+```
+
+-   Eliminar un grupo (vacío)
+
+```{bash, eval=FALSE}
+sudo groupdel usuario3
+```
+
+-   Eliminar un usuario
+
+```{bash, eval=FALSE}
+sudo userdel usuario4
+```
+
+-   Remover un usuario de un grupo en específico
+
+```{bash, eval=FALSE}
+sudo gpasswd -d usuario5 admon
+```
+
+Con los codigos vistos previamente podemos estar seguros de los cambios previamente realizados:
+
+```{bash, eval=FALSE}
+tail /cat/etc/passwd
+
+tail /cat/etc/group
+```
+
+## PERMISOS EN LINUX
+
+Los permisos constan de una cadena de 9 caracteres, de los cuales, los 3 primeros son permisos de usuario actual, los 3 siguientes los permisos de los usuario pertenecientes al mismo grupo del usuario actual y los tres últimos los permisos para todos los usuarios.
+
+Este se hace con el código `chmod` .
+
+Los pérmisos pueden ser de:
+
+-   r = reading (lectura, apertura de archivos y directorios)
+-   w = writting (escritura, modficiación de archivos)
+-   x = executing (ejecución, poner en marcha programas)
+
+Existen dos métodos para administrar permisos: un método numérico y otro simbólico.
+
+### Método numérico
+
+|  r  |  w  |  x  | código numérico |
+|:---:|:---:|:---:|:---------------:|
+|  0  |  0  |  0  |      **0**      |
+|  0  |  0  |  1  |      **1**      |
+|  0  |  1  |  0  |      **2**      |
+|  0  |  1  |  1  |      **3**      |
+|  1  |  0  |  0  |      **4**      |
+|  1  |  0  |  1  |      **5**      |
+|  1  |  1  |  0  |      **6**      |
+|  1  |  1  |  1  |      **7**      |
+
+Entonces si utilizas el número 7 estarás concediendo permiso de lectura, escritura y ejecución a quién lo desees.
+
+Ejemplo:
+
+```{bash, eval=FALSE}
+chmod 777 .
+```
+
+En este ejemplo estás dando permiso de los tres tipos a todos los usuarios (ususario actual, grupos y otros) del directorio actual.
+
+```{bash, eval=FALSE}
+chmod 750 .
+```
+
+En este ejemplo estás dando permiso de los tres tipos a todos los usuarios del directorio actual al usuario actual, permiso de lectura y ejecución a los del mismo grupo y ningún permiso a otro usuario externo.
+
+### Método simbólico
+
+Para este método se usará g para grupos, o para otros y a para todos , + si es permiso concedido y - si es denegado.
+
+Por ejemplo, queremos darle permiso del presente directorio a los ususario de migrupo, permisos de lectura y ejecución:
+
+```{bash, eval=FALSE}
+chmod g+rx
+```
+
+o darselo a otros:
+
+```{bash, eval=FALSE}
+chmod o+rx
+```
+
+o remover permisos a los de tu grupo y a otros:
+
+```{bash, eval=FALSE}
+chmod g-rw,o-r
+```
+
+o a todos:
+
+```{bash, eval=FALSE}
+a-rwx
+```

@@ -1,0 +1,76 @@
+# ADMINISTRACIÓN REMOTA DEL SISTEMA
+
+## SSH
+
+-   SSH o shell seguro es un protocolo de red que se implementa mediante un cliente/servidor y que tiene como objetivo crear canales de comunicación seguros mediante la aplicación de algoritmos de incriptación. SSH se opera en el puerto TCP 22. 
+
+Usualmente al instalar Linux, Alma y CentOS se instala ssh, scp (copiado seguro de archivos) y sftp (transferencia segura de archivos). Sino, debe instalarse manualmente según el sistema o distribución. 
+
+- Para verificar que el protocolo esté activo:
+
+```{bash}
+systemctl status sshd
+```
+
+- Checar las conexciones y puertos
+
+```{bash, eval=FALSE}
+sudo firewall-cmd --list-all
+```
+
+-  Checar si los puertos están activos y escuchando
+
+```{bash}
+ss -lntp
+```
+
+- Para habilitar funciones y permisos o demás configuraciones se puede editar el archivo de configuración con cualquier editor de texto (nano, vim, etc). Así luce el archivo:
+
+```{bash}
+cat /etc/ssh/sshd_config
+```
+
+Al hacer cualquier cambio en este archivo debe reiniciarse el protocolo así:
+```{bash, eval=FALSE}
+sudo systemctl restart sshd
+```
+
+
+
+Para conectarse con un servidor debe colocarse ssh y la información del host o ip y el usuario:
+```{bash, eval=FALSE}
+ssh usuario@hostname
+
+shh usuario@ip-address
+
+```
+
+En caso de que la conexión sea através de otro puerto puede especificarse con el parámetro *-p*.
+
+## SCP (Secure copy protocol)
+
+Es un protocolo de transferencia de archivos de forma segura entre un host remoto y uno local, o entre dos ubicaciones remotas.
+
+Este funciona desde tu terminal sin haber iniciado o entrado a tu usuario en el servidor. Si estás conectado solo debes poner en tu terminal *exit* para que se desconecte.
+
+- Para descargar un archivo desde un servidor o usuario remoto y colocarlo donde estás ubicado actualmente:
+
+```{bash. eval=FALSE}
+scp ususario@hostname-or-ipaddres:~/ruta/directorio/archivo.txt .
+```
+
+- Para subir un archivo a un directorio de tu usuario en el servidor:
+
+
+```{bash, eval=FALSE}
+scp archivo.txt  ususario@hostname-or-ipaddres:~/ruta/directorio
+```
+
+- Para subir un directorio usar siempre *-r* recursivo:
+
+```{bash, eval=FALSE}
+scp -r /ruta/directorio  usuario@hostnale-or-ipaddres:/ruta/destino
+
+```
+
+

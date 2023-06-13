@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="virtualización-e-instalación-de-redhatalmarockycentos.html"/>
-
+<link rel="next" href="administración-remota-del-sistema.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -147,6 +147,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#verificar-nombre-del-sistema-y-modificarlo"><i class="fa fa-check"></i><b>2.3</b> Verificar nombre del sistema y modificarlo</a></li>
 <li class="chapter" data-level="2.4" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#verificar-y-cambiar-zona-horaria"><i class="fa fa-check"></i><b>2.4</b> Verificar y cambiar zona horaria</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="administración-remota-del-sistema.html"><a href="administración-remota-del-sistema.html"><i class="fa fa-check"></i><b>3</b> ADMINISTRACIÓN REMOTA DEL SISTEMA</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="administración-remota-del-sistema.html"><a href="administración-remota-del-sistema.html#ssh"><i class="fa fa-check"></i><b>3.1</b> SSH</a></li>
+<li class="chapter" data-level="3.2" data-path="administración-remota-del-sistema.html"><a href="administración-remota-del-sistema.html#scp-secure-copy-protocol"><i class="fa fa-check"></i><b>3.2</b> SCP (Secure copy protocol)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html"><i class="fa fa-check"></i><b>4</b> ADMINISTRACIÓN DE USUARIOS, GRUPOS Y PERMISOS</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#usuarios"><i class="fa fa-check"></i><b>4.1</b> USUARIOS</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#creando-usuarios-nuevos"><i class="fa fa-check"></i><b>4.1.1</b> CREANDO USUARIOS NUEVOS</a></li>
+<li class="chapter" data-level="4.1.2" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#modificando-cuentas-de-usuario"><i class="fa fa-check"></i><b>4.1.2</b> MODIFICANDO CUENTAS DE USUARIO</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#permisos-en-linux"><i class="fa fa-check"></i><b>4.2</b> PERMISOS EN LINUX</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#método-numérico"><i class="fa fa-check"></i><b>4.2.1</b> Método numérico</a></li>
+<li class="chapter" data-level="4.2.2" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#método-simbólico"><i class="fa fa-check"></i><b>4.2.2</b> Método simbólico</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -181,8 +199,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="administración-de-procesos.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span> <span class="at">-ef</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 3</span></code></pre></div>
 <pre><code>## UID        PID  PPID  C STIME TTY          TIME CMD
-## root         1     0  0 jun01 ?        00:01:24 /sbin/init splash
-## root         2     0  0 jun01 ?        00:00:00 [kthreadd]</code></pre>
+## root         1     0  0 jun06 ?        00:00:55 /sbin/init splash
+## root         2     0  0 jun06 ?        00:00:00 [kthreadd]</code></pre>
 <p>Podemos distinguir pid (id del proceso), time (tiempo acumulado), CMD (comando o proceso), stime (tiempo de inicio), [] proceso llevado por kernel o sistema y en caso de no por los ususarios.</p>
 <p>Para terminar un proceso hay que identificar el pid o nombre del proceso y usar el comando kill, con el argumento g se forza el cierre:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="administración-de-procesos.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> kill 950</span></code></pre></div>
@@ -287,9 +305,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Verificar zona horaria</li>
 </ul>
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="administración-de-procesos.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">timedatectl</span></span></code></pre></div>
-<pre><code>##                       Local time: dom 2023-06-04 13:00:19 CST
-##                   Universal time: dom 2023-06-04 19:00:19 UTC
-##                         RTC time: dom 2023-06-04 19:00:19
+<pre><code>##                       Local time: lun 2023-06-12 23:44:04 CST
+##                   Universal time: mar 2023-06-13 05:44:04 UTC
+##                         RTC time: mar 2023-06-13 05:44:04
 ##                        Time zone: America/Mexico_City (CST, -0600)
 ##        System clock synchronized: yes
 ## systemd-timesyncd.service active: yes
@@ -311,8 +329,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="virtualización-e-instalación-de-redhatalmarockycentos.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="virtualización-e-instalación-de-redhatalmarockycentos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="administración-remota-del-sistema.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
