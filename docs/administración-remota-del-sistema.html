@@ -227,9 +227,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## LISTEN   0         128                 0.0.0.0:22               0.0.0.0:*                                                                                       
 ## LISTEN   0         5                 127.0.0.1:631              0.0.0.0:*                                                                                       
 ## LISTEN   7         128               127.0.0.1:35037            0.0.0.0:*        users:((&quot;rsession&quot;,pid=16827,fd=16),(&quot;sh&quot;,pid=8976,fd=16))                     
-## LISTEN   0         8                 127.0.0.1:14623            0.0.0.0:*        users:((&quot;ss&quot;,pid=19878,fd=23),(&quot;sh&quot;,pid=19877,fd=23),(&quot;rsession&quot;,pid=9539,fd=23))
+## LISTEN   0         8                 127.0.0.1:14623            0.0.0.0:*        users:((&quot;ss&quot;,pid=21267,fd=23),(&quot;sh&quot;,pid=21266,fd=23),(&quot;rsession&quot;,pid=9539,fd=23))
 ## LISTEN   0         8                 127.0.0.1:23008            0.0.0.0:*        users:((&quot;rsession&quot;,pid=16827,fd=24),(&quot;sh&quot;,pid=8976,fd=24))                     
-## LISTEN   0         128               127.0.0.1:26147            0.0.0.0:*        users:((&quot;ss&quot;,pid=19878,fd=16),(&quot;sh&quot;,pid=19877,fd=16),(&quot;rsession&quot;,pid=9539,fd=16))
+## LISTEN   0         128               127.0.0.1:26147            0.0.0.0:*        users:((&quot;ss&quot;,pid=21267,fd=16),(&quot;sh&quot;,pid=21266,fd=16),(&quot;rsession&quot;,pid=9539,fd=16))
 ## LISTEN   0         128                    [::]:22                  [::]:*                                                                                       
 ## LISTEN   0         5                     [::1]:631                 [::]:*</code></pre>
 <ul>
@@ -374,15 +374,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Para descargar un archivo desde un servidor o usuario remoto y colocarlo donde estás ubicado actualmente:</li>
 </ul>
-<p><code>{bash. eval=FALSE} scp ususario@hostname-or-ipaddres:~/ruta/directorio/archivo.txt .</code></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="administración-remota-del-sistema.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> ususario@hostname-or-ipaddres:~/ruta/directorio/archivo.txt .</span></code></pre></div>
 <ul>
 <li>Para subir un archivo a un directorio de tu usuario en el servidor:</li>
 </ul>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="administración-remota-del-sistema.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> archivo.txt  ususario@hostname-or-ipaddres:~/ruta/directorio</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="administración-remota-del-sistema.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> archivo.txt  ususario@hostname-or-ipaddres:~/ruta/directorio</span></code></pre></div>
 <ul>
 <li>Para subir un directorio usar siempre <em>-r</em> recursivo:</li>
 </ul>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="administración-remota-del-sistema.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> <span class="at">-r</span> /ruta/directorio  usuario@hostnale-or-ipaddres:/ruta/destino</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="administración-remota-del-sistema.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> <span class="at">-r</span> /ruta/directorio  usuario@hostnale-or-ipaddres:/ruta/destino</span></code></pre></div>
 
 </div>
 </div>

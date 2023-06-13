@@ -188,17 +188,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.1</span> USUARIOS<a href="administración-de-usuarios-grupos-y-permisos.html#usuarios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Existen varios comandos que nos permiten ubicarnos en qué usuario estamos ubicados e incluso en qué sistema operativo operamos y sus características.</p>
 <p>Por ejemplo este comando te dice que usuario eres:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">whoami</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">whoami</span></span></code></pre></div>
 <pre><code>## yendi</code></pre>
 <p>Si queremos saber información sobre nuestro sistema, versión, arquitectura y demás:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uname</span> <span class="at">-a</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uname</span> <span class="at">-a</span></span></code></pre></div>
 <pre><code>## Linux yendi 5.4.0-149-generic #166~18.04.1-Ubuntu SMP Fri Apr 21 16:42:44 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux</code></pre>
 <p>Ahora, propiamente para conocer la información sobre nuestro usuario, en qué grupo nos encontramos y demás, usamos:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span></span></code></pre></div>
 <pre><code>## uid=1000(yendi) gid=1000(yendi) groups=1000(yendi),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),116(lpadmin),126(sambashare)</code></pre>
 <p>uid= identificador de usuario (este será del número 1000 en adelante, los de 1000 para abajo están reservados para el sistema). gid= identificador del grupo principal, cada ususario que creamos puede encontrarse en varios grupos y al crearse por defecto se creará un grupo nuevo (también de 1000 en adelante) a no ser que se indique manualmente este id. groups= grupos a los que pertenece, dependiendo de esto tendrá o no permisos para algunas funciones del sistema. Por ejemplo, aquí el gripo <em>adm</em> indica que tiene privilegios administrativos y <em>sudo</em> que tiene permisos de superusuario, en el caso de CentOS o Alma (red-hat) el grupo <em>wheel</em> tiene privilegios especiales, como la capacidad de ejecutar comandos como superusuario o administrador del sistema.</p>
 <p>Para revisar los ususarios del sistema y los grupos usamos los siguientes códigos:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> /etc/passwd</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> /etc/passwd</span></code></pre></div>
 <pre><code>## hplip:x:118:7:HPLIP system user,,,:/var/run/hplip:/bin/false
 ## geoclue:x:119:124::/var/lib/geoclue:/usr/sbin/nologin
 ## gnome-initial-setup:x:120:65534::/run/gnome-initial-setup/:/bin/false
@@ -210,7 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sshd:x:124:65534::/run/sshd:/usr/sbin/nologin
 ## dhcpd:x:125:131::/var/run:/usr/sbin/nologin</code></pre>
 <p>En este vemos el id, gid, el directorio donde estará ubicado y el shell. Para ver los grupos y sus ususarios:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> /etc/group</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> /etc/group</span></code></pre></div>
 <pre><code>## gdm:x:125:
 ## yendi:x:1000:
 ## sambashare:x:126:yendi
@@ -234,62 +234,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Creando un usuario con los parámetros por defecto (uid asignado nuevo, gid asignado nuevo, bash y directorio en home con el mismo nombre).</li>
 </ul>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd usuario1</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd usuario1</span></code></pre></div>
 <ul>
 <li>Crear una contraseña para nuevo usuario</li>
 </ul>
-<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> passwd usuario1</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> passwd usuario1</span></code></pre></div>
 <ul>
 <li>Creando un nuevo usuario pero con paráemtros establecidos asignadole un <em>-u</em> (userid), <em>-g</em> (gid) <em>-m -d</em> directorio de trabajo y <em>-s</em> un shell.</li>
 </ul>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd <span class="at">-u</span> 2000 <span class="at">-g</span> 1000 <span class="at">-m</span> <span class="at">-d</span> /home/usuario2 <span class="at">-s</span> /bin/bash usuario2</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd <span class="at">-u</span> 2000 <span class="at">-g</span> 1000 <span class="at">-m</span> <span class="at">-d</span> /home/usuario2 <span class="at">-s</span> /bin/bash usuario2</span></code></pre></div>
 <ul>
 <li>Crear un usuario para un proceso pero sin acceso.</li>
 </ul>
-<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd <span class="at">-s</span> /sbin/nologin usuario3</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd <span class="at">-s</span> /sbin/nologin usuario3</span></code></pre></div>
 <ul>
 <li>Creando un usuario nuevo asignadolo a un grupo</li>
 </ul>
-<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd <span class="at">-G</span> wheel usuario4</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd <span class="at">-G</span> wheel usuario4</span></code></pre></div>
 </div>
 <div id="modificando-cuentas-de-usuario" class="section level3 hasAnchor" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> MODIFICANDO CUENTAS DE USUARIO<a href="administración-de-usuarios-grupos-y-permisos.html#modificando-cuentas-de-usuario" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Cambiar el directorio de un usuario</li>
 </ul>
-<div class="sourceCode" id="cb44"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-m</span> <span class="at">-d</span> /home/user1 usuario1</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-m</span> <span class="at">-d</span> /home/user1 usuario1</span></code></pre></div>
 <ul>
 <li>Cambiar el shell de un usuario</li>
 </ul>
-<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-s</span> /sbin/nologin/ usuario2</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb46-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-s</span> /sbin/nologin/ usuario2</span></code></pre></div>
 <ul>
 <li>Cambiar el login name de un usuario</li>
 </ul>
-<div class="sourceCode" id="cb46"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb46-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-l</span> user2 usuario2</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-l</span> user2 usuario2</span></code></pre></div>
 <ul>
 <li>Agregar adicionalmente un usuario a un grupo ya definido (sin sacarlo de los grupos donde se encuentre)</li>
 </ul>
-<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-a</span> <span class="at">-G</span> 1000 usuario6</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-a</span> <span class="at">-G</span> 1000 usuario6</span></code></pre></div>
 <ul>
 <li>Asignar un nuevo grupo principal a un usuario (ojo! el grupo se conservará pero el usuario ya no estará en ese grupo).</li>
 </ul>
-<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-g</span> 1000 usuario3</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-g</span> 1000 usuario3</span></code></pre></div>
 <ul>
 <li>Eliminar un grupo (vacío)</li>
 </ul>
-<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> groupdel usuario3</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> groupdel usuario3</span></code></pre></div>
 <ul>
 <li>Eliminar un usuario</li>
 </ul>
-<div class="sourceCode" id="cb50"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> userdel usuario4</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> userdel usuario4</span></code></pre></div>
 <ul>
 <li>Remover un usuario de un grupo en específico</li>
 </ul>
-<div class="sourceCode" id="cb51"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gpasswd <span class="at">-d</span> usuario5 admon</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gpasswd <span class="at">-d</span> usuario5 admon</span></code></pre></div>
 <p>Con los codigos vistos previamente podemos estar seguros de los cambios previamente realizados:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> /cat/etc/passwd</span>
-<span id="cb52-2"><a href="administración-de-usuarios-grupos-y-permisos.html#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-3"><a href="administración-de-usuarios-grupos-y-permisos.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> /cat/etc/group</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb53-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> /cat/etc/passwd</span>
+<span id="cb53-2"><a href="administración-de-usuarios-grupos-y-permisos.html#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="administración-de-usuarios-grupos-y-permisos.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> /cat/etc/group</span></code></pre></div>
 </div>
 </div>
 <div id="permisos-en-linux" class="section level2 hasAnchor" number="4.2">
@@ -367,22 +367,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>Entonces si utilizas el número 7 estarás concediendo permiso de lectura, escritura y ejecución a quién lo desees.</p>
 <p>Ejemplo:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb53-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 777 .</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 777 .</span></code></pre></div>
 <p>En este ejemplo estás dando permiso de los tres tipos a todos los usuarios (ususario actual, grupos y otros) del directorio actual.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 750 .</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb55-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 750 .</span></code></pre></div>
 <p>En este ejemplo estás dando permiso de los tres tipos a todos los usuarios del directorio actual al usuario actual, permiso de lectura y ejecución a los del mismo grupo y ningún permiso a otro usuario externo.</p>
 </div>
 <div id="método-simbólico" class="section level3 hasAnchor" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Método simbólico<a href="administración-de-usuarios-grupos-y-permisos.html#método-simbólico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para este método se usará g para grupos, o para otros y a para todos , + si es permiso concedido y - si es denegado.</p>
 <p>Por ejemplo, queremos darle permiso del presente directorio a los ususario de migrupo, permisos de lectura y ejecución:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb55-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> g+rx</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb56-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> g+rx</span></code></pre></div>
 <p>o darselo a otros:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb56-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> o+rx</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb57-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> o+rx</span></code></pre></div>
 <p>o remover permisos a los de tu grupo y a otros:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb57-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> g-rw,o-r</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb58-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> g-rw,o-r</span></code></pre></div>
 <p>o a todos:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb58-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="ex">a-rwx</span></span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb59-1"><a href="administración-de-usuarios-grupos-y-permisos.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> a-rwx</span></code></pre></div>
 
 </div>
 </div>

@@ -206,5 +206,5 @@ chmod g-rw,o-r
 o a todos:
 
 ```{bash, eval=FALSE}
-a-rwx
+chmod a-rwx
 ```

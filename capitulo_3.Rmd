@@ -55,7 +55,7 @@ Este funciona desde tu terminal sin haber iniciado o entrado a tu usuario en el 
 
 - Para descargar un archivo desde un servidor o usuario remoto y colocarlo donde estás ubicado actualmente:
 
-```{bash. eval=FALSE}
+```{bash, eval=FALSE}
 scp ususario@hostname-or-ipaddres:~/ruta/directorio/archivo.txt .
 ```
 
