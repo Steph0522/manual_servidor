@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>9 EXTRAS | Manual administrador de Servidores</title>
+  <meta name="description" content="9 EXTRAS | Manual administrador de Servidores" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="9 EXTRAS | Manual administrador de Servidores" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="comunidadbioinfo/templado_bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="9 EXTRAS | Manual administrador de Servidores" />
+  
+  
+  
+
+<meta name="author" content="Stephanie Hereira-Pacheco" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="administración-de-servicios.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="virtualización-e-instalación-de-redhatalmarockycentos.html"><a href="virtualización-e-instalación-de-redhatalmarockycentos.html"><i class="fa fa-check"></i><b>1</b> VIRTUALIZACIÓN E INSTALACIÓN DE REDHAT/ALMA/ROCKY/CENTOS</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="virtualización-e-instalación-de-redhatalmarockycentos.html"><a href="virtualización-e-instalación-de-redhatalmarockycentos.html#pasos-para-instalar-distribución-en-máquina-virtual"><i class="fa fa-check"></i><b>1.1</b> Pasos para instalar distribución en máquina virtual</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html"><i class="fa fa-check"></i><b>2</b> ADMINISTRACIÓN DE PROCESOS</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#códigos-para-checar-los-procesos-activos"><i class="fa fa-check"></i><b>2.1</b> Códigos para checar los procesos activos</a></li>
+<li class="chapter" data-level="2.2" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#cron"><i class="fa fa-check"></i><b>2.2</b> CRON</a></li>
+<li class="chapter" data-level="2.3" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#verificar-nombre-del-sistema-y-modificarlo"><i class="fa fa-check"></i><b>2.3</b> Verificar nombre del sistema y modificarlo</a></li>
+<li class="chapter" data-level="2.4" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#verificar-y-cambiar-zona-horaria"><i class="fa fa-check"></i><b>2.4</b> Verificar y cambiar zona horaria</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="administración-remota-del-sistema.html"><a href="administración-remota-del-sistema.html"><i class="fa fa-check"></i><b>3</b> ADMINISTRACIÓN REMOTA DEL SISTEMA</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="administración-remota-del-sistema.html"><a href="administración-remota-del-sistema.html#ssh"><i class="fa fa-check"></i><b>3.1</b> SSH</a></li>
+<li class="chapter" data-level="3.2" data-path="administración-remota-del-sistema.html"><a href="administración-remota-del-sistema.html#scp-secure-copy-protocol"><i class="fa fa-check"></i><b>3.2</b> SCP (Secure copy protocol)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html"><i class="fa fa-check"></i><b>4</b> ADMINISTRACIÓN DE USUARIOS, GRUPOS Y PERMISOS</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#usuarios"><i class="fa fa-check"></i><b>4.1</b> USUARIOS</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#creando-usuarios-nuevos"><i class="fa fa-check"></i><b>4.1.1</b> CREANDO USUARIOS NUEVOS</a></li>
+<li class="chapter" data-level="4.1.2" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#creando-un-nuevo-grupo"><i class="fa fa-check"></i><b>4.1.2</b> CREANDO UN NUEVO GRUPO</a></li>
+<li class="chapter" data-level="4.1.3" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#modificando-cuentas-de-usuario"><i class="fa fa-check"></i><b>4.1.3</b> MODIFICANDO CUENTAS DE USUARIO</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#permisos-en-linux"><i class="fa fa-check"></i><b>4.2</b> PERMISOS EN LINUX</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#método-numérico"><i class="fa fa-check"></i><b>4.2.1</b> Método numérico</a></li>
+<li class="chapter" data-level="4.2.2" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#método-simbólico"><i class="fa fa-check"></i><b>4.2.2</b> Método simbólico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="administración-de-conectividad-de-red.html"><a href="administración-de-conectividad-de-red.html"><i class="fa fa-check"></i><b>5</b> ADMINISTRACIÓN DE CONECTIVIDAD DE RED</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="administración-de-conectividad-de-red.html"><a href="administración-de-conectividad-de-red.html#nmcli"><i class="fa fa-check"></i><b>5.1</b> NMCLI</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="administración-de-paquetes.html"><a href="administración-de-paquetes.html"><i class="fa fa-check"></i><b>6</b> ADMINISTRACIÓN DE PAQUETES</a></li>
+<li class="chapter" data-level="7" data-path="administración-de-firewall.html"><a href="administración-de-firewall.html"><i class="fa fa-check"></i><b>7</b> ADMINISTRACIÓN DE FIREWALL</a></li>
+<li class="chapter" data-level="8" data-path="administración-de-servicios.html"><a href="administración-de-servicios.html"><i class="fa fa-check"></i><b>8</b> ADMINISTRACIÓN DE SERVICIOS</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="administración-de-servicios.html"><a href="administración-de-servicios.html#apache"><i class="fa fa-check"></i><b>8.0.1</b> APACHE</a></li>
+<li class="chapter" data-level="8.0.2" data-path="administración-de-servicios.html"><a href="administración-de-servicios.html#maria-db"><i class="fa fa-check"></i><b>8.0.2</b> MARIA DB</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="extras.html"><a href="extras.html"><i class="fa fa-check"></i><b>9</b> EXTRAS</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="extras.html"><a href="extras.html#conceptos-claves"><i class="fa fa-check"></i><b>9.1</b> CONCEPTOS CLAVES</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="extras.html"><a href="extras.html#linux-y-distribuciones"><i class="fa fa-check"></i><b>9.1.1</b> LINUX Y DISTRIBUCIONES</a></li>
+<li class="chapter" data-level="9.1.2" data-path="extras.html"><a href="extras.html#virtualización"><i class="fa fa-check"></i><b>9.1.2</b> VIRTUALIZACIÓN</a></li>
+<li class="chapter" data-level="9.1.3" data-path="extras.html"><a href="extras.html#redes-y-tipos-de-conexiones"><i class="fa fa-check"></i><b>9.1.3</b> REDES Y TIPOS DE CONEXIONES</a></li>
+<li class="chapter" data-level="9.1.4" data-path="extras.html"><a href="extras.html#port-forwarding"><i class="fa fa-check"></i><b>9.1.4</b> PORT FORWARDING</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="extras.html"><a href="extras.html#editor-de-textos-vi"><i class="fa fa-check"></i><b>9.2</b> EDITOR DE TEXTOS <code>vi</code></a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Manual administrador de Servidores</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="extras" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">9</span> EXTRAS<a href="extras.html#extras" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="conceptos-claves" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> CONCEPTOS CLAVES<a href="extras.html#conceptos-claves" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="linux-y-distribuciones" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> LINUX Y DISTRIBUCIONES<a href="extras.html#linux-y-distribuciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Linux es un sistema operativo de código abierto basado en Unix. Fue desarrollado originalmente por Linus Torvalds en 1991 y se ha convertido en uno de los sistemas operativos más populares y utilizados en el mundo.</p>
+<p>Linux se caracteriza por ser modular, flexible y altamente personalizable. Es conocido por su estabilidad, seguridad y rendimiento, y se utiliza en una amplia variedad de dispositivos y entornos, desde servidores y estaciones de trabajo hasta dispositivos móviles y sistemas integrados.</p>
+<p>Una distribución de Linux, también conocida como “distro”, es una versión específica de Linux que incluye el núcleo de Linux, junto con una selección de aplicaciones, herramientas y paquetes de software adicionales. Las distribuciones de Linux se crean para satisfacer diferentes necesidades y preferencias de los usuarios, y pueden variar en términos de objetivos, enfoques de administración, conjuntos de aplicaciones, entornos de escritorio y soporte.</p>
+<p>Algunas de las distribuciones de Linux más conocidas son Ubuntu, Fedora, Debian, CentOS, Arch Linux, openSUSE, entre otras. Cada distribución tiene sus propias características, filosofía y comunidad de usuarios, lo que permite a los usuarios elegir la distribución que mejor se adapte a sus necesidades y preferencias.</p>
+<p>Para servidores se usan con frecuencia las distribuciones de Debian, RHEL (Redhat), Ubuntu y antes de ser descontinuado centOS. Las distribuciones gratuitas similares a RHEL son Alma y Rocky que funcionan muy similar y siguen las actualizaciones.</p>
+</div>
+<div id="virtualización" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> VIRTUALIZACIÓN<a href="extras.html#virtualización" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El uso de la virtualización para la implementación de servidores Linux en considerada como una buena práctica en términos de seguridad ya que antes de ser aplicadas las configuraciones se pueden probar en una máquina virtual.</p>
+</div>
+<div id="redes-y-tipos-de-conexiones" class="section level3 hasAnchor" number="9.1.3">
+<h3><span class="header-section-number">9.1.3</span> REDES Y TIPOS DE CONEXIONES<a href="extras.html#redes-y-tipos-de-conexiones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="nat" class="section level4 hasAnchor" number="9.1.3.1">
+<h4><span class="header-section-number">9.1.3.1</span> NAT<a href="extras.html#nat" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Las máquinas virtuales tienen acceso a redes externas al sistema anfitrión mediante el uso de NAT (Network address translation). Una IP de una red interna se traslada a una red de una IP externa para poder obtener comunicación hacia al exterior. Es una técnica utilizada en enrutadores o firewalls para permitir que varios dispositivos en una red privada compartan una única dirección IP pública. Cuando un dispositivo de la red privada envía una solicitud al exterior, la dirección IP de origen se reemplaza por la dirección IP pública del enrutador o firewall. De esta manera, se oculta la estructura de la red privada y se permite que múltiples dispositivos compartan la misma dirección IP pública.</p>
+</div>
+<div id="red-nat" class="section level4 hasAnchor" number="9.1.3.2">
+<h4><span class="header-section-number">9.1.3.2</span> Red NAT<a href="extras.html#red-nat" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En el contexto de las máquinas virtuales, una red NAT es una configuración de red virtual en la que la máquina virtual tiene acceso a una red externa a través de un enrutador virtual. El enrutador virtual realiza la traducción de direcciones de red, similar a NAT en un enrutador físico. La máquina virtual se conecta a la red externa utilizando una dirección IP virtual proporcionada por el enrutador virtual. Esto permite que la máquina virtual se comunique con recursos externos, como Internet, sin exponer directamente su dirección IP privada al exterior. En las máquinas debe virtuales para usar esta debe primero darse de alta y luedo dar Restart y poner diferentes IPs.</p>
+</div>
+<div id="puente-bridge" class="section level4 hasAnchor" number="9.1.3.3">
+<h4><span class="header-section-number">9.1.3.3</span> Puente (Bridge)<a href="extras.html#puente-bridge" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Se comportan como equipos físicos que se conectan al switch. Se integran como equipos adicionales dentro de la red local. La máquina se inegra a la red con servicios de mediano volumen. Esta configuración permite que la máquina virtual se comporte como si estuviera conectada directamente a la red física, lo que facilita la comunicación con otros dispositivos en la red.</p>
+</div>
+<div id="solo-anfitrión-host-only" class="section level4 hasAnchor" number="9.1.3.4">
+<h4><span class="header-section-number">9.1.3.4</span> Solo anfitrión (Host-only)<a href="extras.html#solo-anfitrión-host-only" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En esta configuración, la máquina virtual se conecta únicamente a una red virtual interna que existe solo entre el host y las máquinas virtuales. Las máquinas virtuales pueden comunicarse entre sí y con el host, pero no tienen acceso directo a la red física externa ni a otros dispositivos en la red. Esto proporciona un entorno de red aislado y seguro para las máquinas virtuales. No necesita salida al internet y ocupa pocos recursos.</p>
+</div>
+<div id="red-interna-internal-en-esta-configuración-las-máquinas-virtuales-se-conectan-a-una-red-virtual-interna-que-existe-solo-entre-ellas-sin-acceso-a-la-red-física-del-host-ni-a-dispositivos-externos.-las-máquinas-virtuales-en-la-misma-red-interna-pueden-comunicarse-entre-sí-pero-no-pueden-comunicarse-con-el-host-ni-con-otros-dispositivos-externos." class="section level4 hasAnchor" number="9.1.3.5">
+<h4><span class="header-section-number">9.1.3.5</span> Red interna (Internal): En esta configuración, las máquinas virtuales se conectan a una red virtual interna que existe solo entre ellas, sin acceso a la red física del host ni a dispositivos externos. Las máquinas virtuales en la misma red interna pueden comunicarse entre sí, pero no pueden comunicarse con el host ni con otros dispositivos externos.<a href="extras.html#red-interna-internal-en-esta-configuración-las-máquinas-virtuales-se-conectan-a-una-red-virtual-interna-que-existe-solo-entre-ellas-sin-acceso-a-la-red-física-del-host-ni-a-dispositivos-externos.-las-máquinas-virtuales-en-la-misma-red-interna-pueden-comunicarse-entre-sí-pero-no-pueden-comunicarse-con-el-host-ni-con-otros-dispositivos-externos." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="port-forwarding" class="section level3 hasAnchor" number="9.1.4">
+<h3><span class="header-section-number">9.1.4</span> PORT FORWARDING<a href="extras.html#port-forwarding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La combinación de NAT y Port forwarding es muy usado en empresas y tiene beneficios de seguridad y administración. Una red NAT como lo vimos anteriormente, es una técnica mediante la cual un equipo en red facilita el acceso a internet a un grupo de equipos, intercambiando de manera temporal una IP privada por una IP pública. Esto se utiliza ampliamente en routers y firewalls tipo UTM. Desde afuera estas máquinas no son visibles, cualquier cosa que haga un usuario será a cargo de administador.</p>
+<p>El <strong>port forwarding</strong> es un mecanismo o técnica para aislar sistemas en red, por lo general servidores, de forma tal que el acceso de los servicios implementados requiere de un sistema intermediario. Este último equipo mantiene una relación de direcciones IP y puertos a los cuales deberán enviar las peticiones de servicio que él mismo recibe.</p>
+<p>Port forwarding (reenvío de puertos) es una técnica que permite redirigir el tráfico de red entrante desde un puerto específico de un dispositivo de red hacia otro dispositivo o servicio en la red local.</p>
+<p>Cuando un dispositivo recibe datos de red, generalmente utiliza puertos específicos para distinguir diferentes servicios o aplicaciones que se ejecutan en él. El reenvío de puertos permite que los datos entrantes que llegan a un puerto específico sean redirigidos hacia otro dispositivo o servicio en la red local, incluso si ese dispositivo se encuentra detrás de un enrutador o firewall.</p>
+<p>El reenvío de puertos es útil en escenarios como acceder a servicios en una red local desde Internet, permitir conexiones remotas a un servidor o configurar aplicaciones que requieren puertos específicos para funcionar correctamente.</p>
+</div>
+</div>
+<div id="editor-de-textos-vi" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> EDITOR DE TEXTOS <code>vi</code><a href="extras.html#editor-de-textos-vi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>vi</code> es un editor de texto muy común en sistemas Unix y se utiliza para editar y crear archivos de texto en la línea de comandos.</p>
+<p>Sin embargo, ten en cuenta que en algunas distribuciones de Linux, <code>vi</code> puede ser una versión básica del editor y es posible que prefieras utilizar un editor de texto más avanzado como <code>vim</code> (Vi Improved). Puedes instalar <code>vim</code> en Ubuntu y AlmaLinux utilizando el administrador de paquetes de la distribución correspondiente.</p>
+<p>Si deseas verificar si <code>vi</code> está instalado en tu sistema, puedes ejecutar el siguiente comando en la terminal:</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb96-1"><a href="extras.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vi</span> <span class="at">--version</span></span></code></pre></div>
+<pre><code>## VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Apr 18 2023 09:20:34)
+## Included patches: 1-1453, 3625, 3669, 3741
+## Modified by pkg-vim-maintainers@lists.alioth.debian.org
+## Compiled by pkg-vim-maintainers@lists.alioth.debian.org
+## Huge version without GUI.  Features included (+) or not (-):
+## +acl               +farsi             +mouse_sgr         -tag_any_white
+## +arabic            +file_in_path      -mouse_sysmouse    -tcl
+## +autocmd           +find_in_path      +mouse_urxvt       +termguicolors
+## -autoservername    +float             +mouse_xterm       +terminal
+## -balloon_eval      +folding           +multi_byte        +terminfo
+## +balloon_eval_term -footer            +multi_lang        +termresponse
+## -browse            +fork()            -mzscheme          +textobjects
+## ++builtin_terms    +gettext           +netbeans_intg     +timers
+## +byte_offset       -hangul_input      +num64             +title
+## +channel           +iconv             +packages          -toolbar
+## +cindent           +insert_expand     +path_extra        +user_commands
+## -clientserver      +job               -perl              +vertsplit
+## -clipboard         +jumplist          +persistent_undo   +virtualedit
+## +cmdline_compl     +keymap            +postscript        +visual
+## +cmdline_hist      +lambda            +printer           +visualextra
+## +cmdline_info      +langmap           +profile           +viminfo
+## +comments          +libcall           -python            +vreplace
+## +conceal           +linebreak         +python3           +wildignore
+## +cryptv            +lispindent        +quickfix          +wildmenu
+## +cscope            +listcmds          +reltime           +windows
+## +cursorbind        +localmap          +rightleft         +writebackup
+## +cursorshape       -lua               -ruby              -X11
+## +dialog_con        +menu              +scrollbind        -xfontset
+## +diff              +mksession         +signs             -xim
+## +digraphs          +modify_fname      +smartindent       -xpm
+## -dnd               +mouse             +startuptime       -xsmp
+## -ebcdic            -mouseshape        +statusline        -xterm_clipboard
+## +emacs_tags        +mouse_dec         -sun_workshop      -xterm_save
+## +eval              +mouse_gpm         +syntax            
+## +ex_extra          -mouse_jsbterm     +tag_binary        
+## +extra_search      +mouse_netterm     +tag_old_static    
+##    system vimrc file: &quot;$VIM/vimrc&quot;
+##      user vimrc file: &quot;$HOME/.vimrc&quot;
+##  2nd user vimrc file: &quot;~/.vim/vimrc&quot;
+##       user exrc file: &quot;$HOME/.exrc&quot;
+##        defaults file: &quot;$VIMRUNTIME/defaults.vim&quot;
+##   fall-back for $VIM: &quot;/usr/share/vim&quot;
+## Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H   -Wdate-time  -g -O2 -fdebug-prefix-map=/build/vim-bW1j6S/vim-8.0.1453=. -fstack-protector-strong -Wformat -Werror=format-security -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1       
+## Linking: gcc   -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -o vim        -lm -ltinfo -lnsl  -lselinux  -lacl -lattr -lgpm -ldl     -L/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu -lpython3.6m -lpthread -ldl -lutil -lm</code></pre>
+<p>Antes de acceder a algunas de estas opciones recuerde debe presionar la tecla <code>ESC</code>.</p>
+<p>Opciones:</p>
+<ul>
+<li><p>i : insertar texto en posición actual</p></li>
+<li><p>a : insertar texto en posición siguiente</p></li>
+<li><p>o : insertar una nueva línea de la posición actual</p></li>
+<li><p>O : insertar una nueva línea sobre la posición actual</p></li>
+<li><p>dd : eliminar línea actual</p></li>
+<li><p>yy : copiar línea actual</p></li>
+<li><p>p : pegar texto</p></li>
+<li><p>cw : reemplazar palabra</p></li>
+<li><p>x : eliminar caracter primero</p></li>
+<li><p>u : deshacer</p></li>
+</ul>
+<p>Luego de presionar ESC + :, podemos tener más opciones, tales como:</p>
+<ul>
+<li><p>:w = guardar</p></li>
+<li><p>:q = salir de vi</p></li>
+<li><p>:wq = guardar y salir</p></li>
+<li><p>:q’ = salir sin guardar</p></li>
+<li><p>:set nu/nonu = mostrar o no la numeración de las líneas</p></li>
+<li><p>/palabra = buscar “palabra” en texto</p></li>
+<li><p>:g = reemplazar o eliminar (:g/word/s//WORD/g, g/word/d)</p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="administración-de-servicios.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

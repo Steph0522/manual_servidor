@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 ADMINISTRACIÓN DE CONECTIVIDAD DE RED | Manual administrador de Servidores</title>
+  <meta name="description" content="5 ADMINISTRACIÓN DE CONECTIVIDAD DE RED | Manual administrador de Servidores" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 ADMINISTRACIÓN DE CONECTIVIDAD DE RED | Manual administrador de Servidores" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="comunidadbioinfo/templado_bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 ADMINISTRACIÓN DE CONECTIVIDAD DE RED | Manual administrador de Servidores" />
+  
+  
+  
+
+<meta name="author" content="Stephanie Hereira-Pacheco" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="administración-de-usuarios-grupos-y-permisos.html"/>
+<link rel="next" href="administración-de-paquetes.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="virtualización-e-instalación-de-redhatalmarockycentos.html"><a href="virtualización-e-instalación-de-redhatalmarockycentos.html"><i class="fa fa-check"></i><b>1</b> VIRTUALIZACIÓN E INSTALACIÓN DE REDHAT/ALMA/ROCKY/CENTOS</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="virtualización-e-instalación-de-redhatalmarockycentos.html"><a href="virtualización-e-instalación-de-redhatalmarockycentos.html#pasos-para-instalar-distribución-en-máquina-virtual"><i class="fa fa-check"></i><b>1.1</b> Pasos para instalar distribución en máquina virtual</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html"><i class="fa fa-check"></i><b>2</b> ADMINISTRACIÓN DE PROCESOS</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#códigos-para-checar-los-procesos-activos"><i class="fa fa-check"></i><b>2.1</b> Códigos para checar los procesos activos</a></li>
+<li class="chapter" data-level="2.2" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#cron"><i class="fa fa-check"></i><b>2.2</b> CRON</a></li>
+<li class="chapter" data-level="2.3" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#verificar-nombre-del-sistema-y-modificarlo"><i class="fa fa-check"></i><b>2.3</b> Verificar nombre del sistema y modificarlo</a></li>
+<li class="chapter" data-level="2.4" data-path="administración-de-procesos.html"><a href="administración-de-procesos.html#verificar-y-cambiar-zona-horaria"><i class="fa fa-check"></i><b>2.4</b> Verificar y cambiar zona horaria</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="administración-remota-del-sistema.html"><a href="administración-remota-del-sistema.html"><i class="fa fa-check"></i><b>3</b> ADMINISTRACIÓN REMOTA DEL SISTEMA</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="administración-remota-del-sistema.html"><a href="administración-remota-del-sistema.html#ssh"><i class="fa fa-check"></i><b>3.1</b> SSH</a></li>
+<li class="chapter" data-level="3.2" data-path="administración-remota-del-sistema.html"><a href="administración-remota-del-sistema.html#scp-secure-copy-protocol"><i class="fa fa-check"></i><b>3.2</b> SCP (Secure copy protocol)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html"><i class="fa fa-check"></i><b>4</b> ADMINISTRACIÓN DE USUARIOS, GRUPOS Y PERMISOS</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#usuarios"><i class="fa fa-check"></i><b>4.1</b> USUARIOS</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#creando-usuarios-nuevos"><i class="fa fa-check"></i><b>4.1.1</b> CREANDO USUARIOS NUEVOS</a></li>
+<li class="chapter" data-level="4.1.2" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#creando-un-nuevo-grupo"><i class="fa fa-check"></i><b>4.1.2</b> CREANDO UN NUEVO GRUPO</a></li>
+<li class="chapter" data-level="4.1.3" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#modificando-cuentas-de-usuario"><i class="fa fa-check"></i><b>4.1.3</b> MODIFICANDO CUENTAS DE USUARIO</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#permisos-en-linux"><i class="fa fa-check"></i><b>4.2</b> PERMISOS EN LINUX</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#método-numérico"><i class="fa fa-check"></i><b>4.2.1</b> Método numérico</a></li>
+<li class="chapter" data-level="4.2.2" data-path="administración-de-usuarios-grupos-y-permisos.html"><a href="administración-de-usuarios-grupos-y-permisos.html#método-simbólico"><i class="fa fa-check"></i><b>4.2.2</b> Método simbólico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="administración-de-conectividad-de-red.html"><a href="administración-de-conectividad-de-red.html"><i class="fa fa-check"></i><b>5</b> ADMINISTRACIÓN DE CONECTIVIDAD DE RED</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="administración-de-conectividad-de-red.html"><a href="administración-de-conectividad-de-red.html#nmcli"><i class="fa fa-check"></i><b>5.1</b> NMCLI</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="administración-de-paquetes.html"><a href="administración-de-paquetes.html"><i class="fa fa-check"></i><b>6</b> ADMINISTRACIÓN DE PAQUETES</a></li>
+<li class="chapter" data-level="7" data-path="administración-de-firewall.html"><a href="administración-de-firewall.html"><i class="fa fa-check"></i><b>7</b> ADMINISTRACIÓN DE FIREWALL</a></li>
+<li class="chapter" data-level="8" data-path="administración-de-servicios.html"><a href="administración-de-servicios.html"><i class="fa fa-check"></i><b>8</b> ADMINISTRACIÓN DE SERVICIOS</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="administración-de-servicios.html"><a href="administración-de-servicios.html#apache"><i class="fa fa-check"></i><b>8.0.1</b> APACHE</a></li>
+<li class="chapter" data-level="8.0.2" data-path="administración-de-servicios.html"><a href="administración-de-servicios.html#maria-db"><i class="fa fa-check"></i><b>8.0.2</b> MARIA DB</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="extras.html"><a href="extras.html"><i class="fa fa-check"></i><b>9</b> EXTRAS</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="extras.html"><a href="extras.html#conceptos-claves"><i class="fa fa-check"></i><b>9.1</b> CONCEPTOS CLAVES</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="extras.html"><a href="extras.html#linux-y-distribuciones"><i class="fa fa-check"></i><b>9.1.1</b> LINUX Y DISTRIBUCIONES</a></li>
+<li class="chapter" data-level="9.1.2" data-path="extras.html"><a href="extras.html#virtualización"><i class="fa fa-check"></i><b>9.1.2</b> VIRTUALIZACIÓN</a></li>
+<li class="chapter" data-level="9.1.3" data-path="extras.html"><a href="extras.html#redes-y-tipos-de-conexiones"><i class="fa fa-check"></i><b>9.1.3</b> REDES Y TIPOS DE CONEXIONES</a></li>
+<li class="chapter" data-level="9.1.4" data-path="extras.html"><a href="extras.html#port-forwarding"><i class="fa fa-check"></i><b>9.1.4</b> PORT FORWARDING</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="extras.html"><a href="extras.html#editor-de-textos-vi"><i class="fa fa-check"></i><b>9.2</b> EDITOR DE TEXTOS <code>vi</code></a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Manual administrador de Servidores</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="administración-de-conectividad-de-red" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> ADMINISTRACIÓN DE CONECTIVIDAD DE RED<a href="administración-de-conectividad-de-red.html#administración-de-conectividad-de-red" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Para probar tu conectividad utilizamos el código <code>ping</code> que hace una comprobación de errores de red como ip duplicada (servidor con otro equipo), interfaz de red desconectada, direccción DNS, entre otros.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb62-1"><a href="administración-de-conectividad-de-red.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ping</span> <span class="at">-c</span> 3 www.google.com</span></code></pre></div>
+<pre><code>## PING www.google.com(qro02s23-in-x04.1e100.net (2607:f8b0:4012:815::2004)) 56 data bytes
+## 64 bytes from qro02s23-in-x04.1e100.net (2607:f8b0:4012:815::2004): icmp_seq=1 ttl=119 time=13.4 ms
+## 64 bytes from qro02s23-in-x04.1e100.net (2607:f8b0:4012:815::2004): icmp_seq=2 ttl=119 time=12.9 ms
+## 64 bytes from qro02s23-in-x04.1e100.net (2607:f8b0:4012:815::2004): icmp_seq=3 ttl=119 time=15.2 ms
+## 
+## --- www.google.com ping statistics ---
+## 3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+## rtt min/avg/max/mdev = 12.955/13.906/15.283/1.001 ms</code></pre>
+<p>Hay códigos que nos servirán para identifcar nuestras conexiones de red e identificar nuestas ips.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb64-1"><a href="administración-de-conectividad-de-red.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ip</span> a s <span class="co"># ver todas</span></span></code></pre></div>
+<pre><code>## 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+##     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+##     inet 127.0.0.1/8 scope host lo
+##        valid_lft forever preferred_lft forever
+##     inet6 ::1/128 scope host 
+##        valid_lft forever preferred_lft forever
+## 2: enp0s31f6: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+##     link/ether e8:6a:64:16:ae:37 brd ff:ff:ff:ff:ff:ff
+##     inet 192.168.1.73/24 brd 192.168.1.255 scope global dynamic noprefixroute enp0s31f6
+##        valid_lft 71352sec preferred_lft 71352sec
+##     inet6 2806:10a6:d:f27e:110:7cb1:637e:8724/64 scope global temporary dynamic 
+##        valid_lft 589753sec preferred_lft 70848sec
+##     inet6 2806:10a6:d:f27e:388c:9210:b998:66f4/64 scope global dynamic mngtmpaddr noprefixroute 
+##        valid_lft 2591811sec preferred_lft 2591811sec
+##     inet6 fe80::808:14e8:e5de:acf/64 scope link noprefixroute 
+##        valid_lft forever preferred_lft forever
+## 3: wlp0s20f3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+##     link/ether 64:5d:86:a2:28:3a brd ff:ff:ff:ff:ff:ff
+##     inet 192.168.1.69/24 brd 192.168.1.255 scope global dynamic noprefixroute wlp0s20f3
+##        valid_lft 71352sec preferred_lft 71352sec
+##     inet6 2806:10a6:d:f27e:284f:b83b:c86e:ede8/64 scope global temporary dynamic 
+##        valid_lft 589754sec preferred_lft 70867sec
+##     inet6 2806:10a6:d:f27e:4f1c:273c:c651:4de7/64 scope global dynamic mngtmpaddr noprefixroute 
+##        valid_lft 2591811sec preferred_lft 2591811sec
+##     inet6 fe80::f986:abc6:ff44:451a/64 scope link noprefixroute 
+##        valid_lft forever preferred_lft forever</code></pre>
+<p>Como se puede ver hay varios tipos de redes, puede ser de la conexión local, por wifi o por cable ethernet.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb66-1"><a href="administración-de-conectividad-de-red.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ip</span> a s enp0s31f6 <span class="co"># ver una en particular</span></span></code></pre></div>
+<pre><code>## 2: enp0s31f6: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+##     link/ether e8:6a:64:16:ae:37 brd ff:ff:ff:ff:ff:ff
+##     inet 192.168.1.73/24 brd 192.168.1.255 scope global dynamic noprefixroute enp0s31f6
+##        valid_lft 71352sec preferred_lft 71352sec
+##     inet6 2806:10a6:d:f27e:110:7cb1:637e:8724/64 scope global temporary dynamic 
+##        valid_lft 589753sec preferred_lft 70848sec
+##     inet6 2806:10a6:d:f27e:388c:9210:b998:66f4/64 scope global dynamic mngtmpaddr noprefixroute 
+##        valid_lft 2591811sec preferred_lft 2591811sec
+##     inet6 fe80::808:14e8:e5de:acf/64 scope link noprefixroute 
+##        valid_lft forever preferred_lft forever</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb68-1"><a href="administración-de-conectividad-de-red.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ip</span> route show <span class="co"># ver ips</span></span></code></pre></div>
+<pre><code>## default via 192.168.1.254 dev enp0s31f6 proto dhcp metric 100 
+## default via 192.168.1.254 dev wlp0s20f3 proto dhcp metric 600 
+## 169.254.0.0/16 dev wlp0s20f3 scope link metric 1000 
+## 192.168.1.0/24 dev enp0s31f6 proto kernel scope link src 192.168.1.73 metric 100 
+## 192.168.1.0/24 dev wlp0s20f3 proto kernel scope link src 192.168.1.69 metric 600</code></pre>
+<p>En caso de que se quiera desactivar o apagar una red en particular se puede hacer con los siguientes códigos:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb70-1"><a href="administración-de-conectividad-de-red.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ip link set enp0s31f6 down <span class="co"># apagar</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb71-1"><a href="administración-de-conectividad-de-red.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ip link set enp0s31f6 up <span class="co"># encender</span></span></code></pre></div>
+<p>Los archivos de configuración de ls redes se encuentran en: <em>/etc/sysconfig/network-scripts</em>, en ubuntu es <em>/etc/NetworkManager/system-connections/</em> . Anteriormente estos archivos se modificaban para configurar las redes, pero ya no está recomendado ahora se recomiendan herramientas administradoras de redes, tales como: <strong>nmcli (cli), nmtui y control center (herramientas gráficas).</strong></p>
+<div id="nmcli" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> NMCLI<a href="administración-de-conectividad-de-red.html#nmcli" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Es un gestor de línea de comandos que usualmente ya viene instalado.</p>
+<ul>
+<li>Para revisar el estado de tus conexiones:</li>
+</ul>
+<div class="sourceCode" id="cb72"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb72-1"><a href="administración-de-conectividad-de-red.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nmcli</span> device status</span></code></pre></div>
+<pre><code>## DEVICE             TYPE      STATE         CONNECTION    
+## enp0s31f6          ethernet  connected     enp0s31f6     
+## wlp0s20f3          wifi      connected     INFINITUM3897 
+## 70:5F:A3:36:BA:A3  bt        disconnected  --            
+## 90:D4:73:10:84:9F  bt        disconnected  --            
+## lo                 loopback  unmanaged     --</code></pre>
+<ul>
+<li>Si se desea prender o apagar una conexión:</li>
+</ul>
+<div class="sourceCode" id="cb74"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb74-1"><a href="administración-de-conectividad-de-red.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nmcli</span> con up enp0s31f6 <span class="co">#encender</span></span>
+<span id="cb74-2"><a href="administración-de-conectividad-de-red.html#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-3"><a href="administración-de-conectividad-de-red.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="ex">nmcli</span> con down enp0s31f6 <span class="co">#apagar</span></span></code></pre></div>
+<ul>
+<li>Para conocer más detalles de tus conexiones en particular puedes usar el código:</li>
+</ul>
+<div class="sourceCode" id="cb75"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb75-1"><a href="administración-de-conectividad-de-red.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nmcli</span> con show enp0s31f6</span></code></pre></div>
+<pre><code>## connection.id:                          enp0s31f6
+## connection.uuid:                        abd3857e-d183-3bff-bf23-75fc0926a4ad
+## connection.stable-id:                   --
+## connection.type:                        802-3-ethernet
+## connection.interface-name:              --
+## connection.autoconnect:                 yes
+## connection.autoconnect-priority:        -999
+## connection.autoconnect-retries:         -1 (default)
+## connection.auth-retries:                -1
+## connection.timestamp:                   1686781607
+## connection.read-only:                   no
+## connection.permissions:                 --
+## connection.zone:                        --
+## connection.master:                      --
+## connection.slave-type:                  --
+## connection.autoconnect-slaves:          -1 (default)
+## connection.secondaries:                 --
+## connection.gateway-ping-timeout:        0
+## connection.metered:                     unknown
+## connection.lldp:                        default
+## connection.mdns:                        -1 (default)
+## 802-3-ethernet.port:                    --
+## 802-3-ethernet.speed:                   0
+## 802-3-ethernet.duplex:                  --
+## 802-3-ethernet.auto-negotiate:          no
+## 802-3-ethernet.mac-address:             E8:6A:64:16:AE:37
+## 802-3-ethernet.cloned-mac-address:      --
+## 802-3-ethernet.generate-mac-address-mask:--
+## 802-3-ethernet.mac-address-blacklist:   --
+## 802-3-ethernet.mtu:                     auto
+## 802-3-ethernet.s390-subchannels:        --
+## 802-3-ethernet.s390-nettype:            --
+## 802-3-ethernet.s390-options:            --
+## 802-3-ethernet.wake-on-lan:             default
+## 802-3-ethernet.wake-on-lan-password:    --
+## ipv4.method:                            auto
+## ipv4.dns:                               8.8.8.8
+## ipv4.dns-search:                        --
+## ipv4.dns-options:                       &quot;&quot;
+## ipv4.dns-priority:                      0
+## ipv4.addresses:                         --
+## ipv4.gateway:                           --
+## ipv4.routes:                            --
+## ipv4.route-metric:                      -1
+## ipv4.route-table:                       0 (unspec)
+## ipv4.ignore-auto-routes:                no
+## ipv4.ignore-auto-dns:                   no
+## ipv4.dhcp-client-id:                    --
+## ipv4.dhcp-timeout:                      0 (default)
+## ipv4.dhcp-send-hostname:                yes
+## ipv4.dhcp-hostname:                     --
+## ipv4.dhcp-fqdn:                         --
+## ipv4.never-default:                     no
+## ipv4.may-fail:                          yes
+## ipv4.dad-timeout:                       -1 (default)
+## ipv6.method:                            auto
+## ipv6.dns:                               --
+## ipv6.dns-search:                        --
+## ipv6.dns-options:                       &quot;&quot;
+## ipv6.dns-priority:                      0
+## ipv6.addresses:                         --
+## ipv6.gateway:                           --
+## ipv6.routes:                            --
+## ipv6.route-metric:                      -1
+## ipv6.route-table:                       0 (unspec)
+## ipv6.ignore-auto-routes:                no
+## ipv6.ignore-auto-dns:                   no
+## ipv6.never-default:                     no
+## ipv6.may-fail:                          yes
+## ipv6.ip6-privacy:                       -1 (unknown)
+## ipv6.addr-gen-mode:                     stable-privacy
+## ipv6.dhcp-send-hostname:                yes
+## ipv6.dhcp-hostname:                     --
+## ipv6.token:                             --
+## proxy.method:                           none
+## proxy.browser-only:                     no
+## proxy.pac-url:                          --
+## proxy.pac-script:                       --
+## GENERAL.NAME:                           enp0s31f6
+## GENERAL.UUID:                           abd3857e-d183-3bff-bf23-75fc0926a4ad
+## GENERAL.DEVICES:                        enp0s31f6
+## GENERAL.STATE:                          activated
+## GENERAL.DEFAULT:                        yes
+## GENERAL.DEFAULT6:                       yes
+## GENERAL.SPEC-OBJECT:                    --
+## GENERAL.VPN:                            no
+## GENERAL.DBUS-PATH:                      /org/freedesktop/NetworkManager/ActiveConnection/19
+## GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/Settings/7
+## GENERAL.ZONE:                           --
+## GENERAL.MASTER-PATH:                    --
+## IP4.ADDRESS[1]:                         192.168.1.73/24
+## IP4.GATEWAY:                            192.168.1.254
+## IP4.ROUTE[1]:                           dst = 0.0.0.0/0, nh = 192.168.1.254, mt = 100
+## IP4.ROUTE[2]:                           dst = 192.168.1.0/24, nh = 0.0.0.0, mt = 100
+## IP4.DNS[1]:                             192.168.1.254
+## IP4.DNS[2]:                             8.8.8.8
+## DHCP4.OPTION[1]:                        requested_subnet_mask = 1
+## DHCP4.OPTION[2]:                        subnet_mask = 255.255.255.0
+## DHCP4.OPTION[3]:                        requested_rfc3442_classless_static_routes = 1
+## DHCP4.OPTION[4]:                        domain_name_servers = 192.168.1.254
+## DHCP4.OPTION[5]:                        ip_address = 192.168.1.73
+## DHCP4.OPTION[6]:                        requested_static_routes = 1
+## DHCP4.OPTION[7]:                        dhcp_server_identifier = 192.168.1.254
+## DHCP4.OPTION[8]:                        requested_time_offset = 1
+## DHCP4.OPTION[9]:                        broadcast_address = 192.168.1.255
+## DHCP4.OPTION[10]:                       requested_interface_mtu = 1
+## DHCP4.OPTION[11]:                       requested_domain_name_servers = 1
+## DHCP4.OPTION[12]:                       dhcp_message_type = 5
+## DHCP4.OPTION[13]:                       requested_broadcast_address = 1
+## DHCP4.OPTION[14]:                       routers = 192.168.1.254
+## DHCP4.OPTION[15]:                       unknown_120 = 0:6:76:69:6d:73:2d:68:6:74:65:6c:6d:65:78:3:63:6f:6d:0
+## DHCP4.OPTION[16]:                       requested_domain_name = 1
+## DHCP4.OPTION[17]:                       requested_routers = 1
+## DHCP4.OPTION[18]:                       expiry = 1686853184
+## DHCP4.OPTION[19]:                       host_name = yendi
+## DHCP4.OPTION[20]:                       requested_netbios_scope = 1
+## DHCP4.OPTION[21]:                       requested_wpad = 1
+## DHCP4.OPTION[22]:                       requested_ms_classless_static_routes = 1
+## DHCP4.OPTION[23]:                       tftp_server_name = tftp://0.0.0.0
+## DHCP4.OPTION[24]:                       requested_netbios_name_servers = 1
+## DHCP4.OPTION[25]:                       network_number = 192.168.1.0
+## DHCP4.OPTION[26]:                       requested_domain_search = 1
+## DHCP4.OPTION[27]:                       next_server = 0.0.0.0
+## DHCP4.OPTION[28]:                       requested_ntp_servers = 1
+## DHCP4.OPTION[29]:                       vendor_encapsulated_options = 1:4:43:54:43:30
+## DHCP4.OPTION[30]:                       requested_host_name = 1
+## DHCP4.OPTION[31]:                       dhcp_lease_time = 86400
+## DHCP4.OPTION[32]:                       vendor_unknown_3561 = 4:6:30:30:45:30:34:43:5:c:30:36:30:33:37:30:38:38:32:37:31:31:6:3:49:47:44
+## IP6.ADDRESS[1]:                         2806:10a6:d:f27e:110:7cb1:637e:8724/64
+## IP6.ADDRESS[2]:                         2806:10a6:d:f27e:388c:9210:b998:66f4/64
+## IP6.ADDRESS[3]:                         fe80::808:14e8:e5de:acf/64
+## IP6.GATEWAY:                            fe80::1
+## IP6.ROUTE[1]:                           dst = 2806:10a6:d:f27e::/64, nh = ::, mt = 100
+## IP6.ROUTE[2]:                           dst = ::/0, nh = fe80::1, mt = 100
+## IP6.ROUTE[3]:                           dst = fe80::/64, nh = ::, mt = 256
+## IP6.ROUTE[4]:                           dst = fe80::/64, nh = ::, mt = 100
+## IP6.DNS[1]:                             2806:10a8:ffff:2::e
+## IP6.DNS[2]:                             2806:10a0:ffff:2::e
+## DHCP6.OPTION[1]:                        requested_dhcp6_domain_search = 1
+## DHCP6.OPTION[2]:                        dhcp6_name_servers = 2806:10a8:ffff:2::e 2806:10a0:ffff:2::e
+## DHCP6.OPTION[3]:                        dhcp6_server_id = 0:1:0:1:2c:13:70:2c:dc:8d:b7:47:57:60
+## DHCP6.OPTION[4]:                        requested_dhcp6_client_id = 1
+## DHCP6.OPTION[5]:                        requested_dhcp6_name_servers = 1
+## DHCP6.OPTION[6]:                        dhcp6_client_id = 0:4:85:44:5a:8e:a1:7a:cd:38:81:b3:fe:da:de:2b:ba:f7</code></pre>
+<p>Si se quiere modificar algunos de estos parámetros detallados anteriormente, por ejemeplo:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb77-1"><a href="administración-de-conectividad-de-red.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nmcli con modify enp0s31f6 ipv4.address 192.1.110/24</span>
+<span id="cb77-2"><a href="administración-de-conectividad-de-red.html#cb77-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-3"><a href="administración-de-conectividad-de-red.html#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nmcli con modify enp0s31f6 ipv4.gateway 192.168.11</span>
+<span id="cb77-4"><a href="administración-de-conectividad-de-red.html#cb77-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-5"><a href="administración-de-conectividad-de-red.html#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nmcli con modify enp0s31f6 ipv4.dns 8.8.8.8</span>
+<span id="cb77-6"><a href="administración-de-conectividad-de-red.html#cb77-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-7"><a href="administración-de-conectividad-de-red.html#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nmcli con modify enp0s31f6 ipv4.method manual</span></code></pre></div>
+<p>Luego de hacer estos cambios se debe apagar y prender como el paso anterior:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb78-1"><a href="administración-de-conectividad-de-red.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nmcli</span> con down enp0s31f6 <span class="co">#apagar</span></span>
+<span id="cb78-2"><a href="administración-de-conectividad-de-red.html#cb78-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-3"><a href="administración-de-conectividad-de-red.html#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="ex">nmcli</span> con up enp0s31f6 <span class="co">#encender</span></span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="administración-de-usuarios-grupos-y-permisos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="administración-de-paquetes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

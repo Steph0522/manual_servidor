@@ -1,0 +1,39 @@
+# ADMINISTRACIÓN DE FIREWALL
+
+`systemctl` es una herramienta de línea de comandos utilizada en sistemas Linux que se adhieren al estándar de inicio y administración del sistema systemd. systemd es un sistema init ampliamente adoptado en distribuciones modernas de Linux, como Ubuntu, CentOS, Fedora, entre otras.
+
+`systemctl` se utiliza para controlar el sistema init y gestionar los servicios del sistema, permitiendo iniciar, detener, reiniciar, habilitar o deshabilitar servicios. También proporciona información sobre el estado de los servicios y registros asociados. Con `systemctl,` puedes administrar tanto servicios del sistema como servicios de usuario.
+
+`systemctl` puede usarse para verificar y administrar el firewall. Un firewall, en el contexto de la informática y la seguridad de redes, es una barrera de seguridad que controla y regula el tráfico de red entre redes o sistemas. Su función principal es proteger los sistemas y redes de posibles amenazas provenientes de redes externas o internas no confiables.
+
+Algunos códigos para checar el estado del firewall y reiniciarlo, son:
+
+```{bash, eval=FALSE}
+sudo systemctl status firewalld
+
+sudo systemctl restart firewalld
+```
+
+`firewall-cmd` es una interfaz de línea de comandos utilizada para administrar y configurar el firewall en sistemas operativos basados en Linux que utilizan el firewall `firewalld`.
+
+Algunos códigos para ver tus firewalls son:
+
+```{bash, eval=FALSE}
+sudo firewall-cmd --list-all
+
+sudo firewall-cmd --get-services | grep ssh # para ver si está
+```
+
+Verificar quienes están conectados por ssh:
+
+```{bash, eval=FALSE}
+ss | grep -i ssh
+```
+
+Para modificar algunos parámetros igual se usa firewall-cmd, algunos ejemplos:
+
+```{bash, eval=FALSE}
+sudo firewall-cmd --permanent --remove-service=ssh # remover ssh
+
+sudo firewall-cmd --permanent --add-rich-rule='rule family ipv4 source addres=192.168.1.108, service name = ssh accept' # hacer que sólo este equipo puede conectarse por ssh
+```

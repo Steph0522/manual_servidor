@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Manual administrador de Servidores</title>
-  <meta name="description" content="Manual administrador de Servidores" />
+  <title>8 ADMINISTRACIÓN DE SERVICIOS | Manual administrador de Servidores</title>
+  <meta name="description" content="8 ADMINISTRACIÓN DE SERVICIOS | Manual administrador de Servidores" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Manual administrador de Servidores" />
+  <meta property="og:title" content="8 ADMINISTRACIÓN DE SERVICIOS | Manual administrador de Servidores" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="comunidadbioinfo/templado_bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Manual administrador de Servidores" />
+  <meta name="twitter:title" content="8 ADMINISTRACIÓN DE SERVICIOS | Manual administrador de Servidores" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="virtualización-e-instalación-de-redhatalmarockycentos.html"/>
+<link rel="prev" href="administración-de-firewall.html"/>
+<link rel="next" href="extras.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -205,24 +205,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Manual administrador de Servidores</h1>
-<p class="author"><em>Stephanie Hereira-Pacheco</em></p>
+<div id="administración-de-servicios" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> ADMINISTRACIÓN DE SERVICIOS<a href="administración-de-servicios.html#administración-de-servicios" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Un servicio es un programa que se ejecuta de manera continua y permanente por lo general en segundo palno y tiene una funcionalidad específica.</p>
+<p>Estos son algunos ejemplos de algunos servicios Internos y de red:</p>
+<ul>
+<li>NetworkManager: interno: Controla interfaces y conexiones de red</li>
+<li>sshd : red: administración remota</li>
+<li>httpd : red : Servidor web</li>
+<li>crond : interno : Programas ejecución de tareas</li>
+<li>firewalld : interno : Administrar firewalld del sistema</li>
+<li>mysql : red : Administración de bases de datos</li>
+</ul>
+<p><code>systemctl</code>es un componente del sistema que administra los servicios combinado con otro parámetro como start, stop, restart, reolad, enable, disable y status, nos permitirá iniciar, encender, apagar y permitir un servicio.</p>
+<p>Para verificar cuales están corriendose actualmente en el sistem:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb92-1"><a href="administración-de-servicios.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> list-units <span class="at">--type</span><span class="op">=</span>service <span class="at">--state</span><span class="op">=</span>running</span></code></pre></div>
+<p>Si se hace algún cambio o modificación como en el capítulo anterior debe reiniciarse el sistema para que se efectúen los cambios.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb93-1"><a href="administración-de-servicios.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart sshd</span></code></pre></div>
+<p>Algunos ejemplos para la instalación de algunos de algunos servicios externos:</p>
+<div id="apache" class="section level3 hasAnchor" number="8.0.1">
+<h3><span class="header-section-number">8.0.1</span> APACHE<a href="administración-de-servicios.html#apache" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb94"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb94-1"><a href="administración-de-servicios.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf install httpd</span>
+<span id="cb94-2"><a href="administración-de-servicios.html#cb94-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-3"><a href="administración-de-servicios.html#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl start httpd</span>
+<span id="cb94-4"><a href="administración-de-servicios.html#cb94-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-5"><a href="administración-de-servicios.html#cb94-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl enable httpd</span>
+<span id="cb94-6"><a href="administración-de-servicios.html#cb94-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-7"><a href="administración-de-servicios.html#cb94-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl status httpd</span></code></pre></div>
 </div>
-<div id="prefacio" class="section level1 unnumbered hasAnchor">
-<h1>Prefacio<a href="index.html#prefacio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Este libro comenzó como las notas tomadas de cursos y materiales para la administración de servidores en linux, aún en desarollo.</p>
-<p>Algunas de las ideas y notas fueron tomadas de los cursos de <a href="https://www.udemy.com/">Udemy</a>:</p>
-<p><a href="https://www.udemy.com/course/implementacion-de-servidores-con-centos-linux/?referralCode=19897C4247C28C492241">Implementación de Servidores Linux (Módulo I)</a> e <a href="https://www.udemy.com/course/introduccion-a-la-virtualizacion/">Introducción a la Virtualización con VirtualBox</a></p>
+<div id="maria-db" class="section level3 hasAnchor" number="8.0.2">
+<h3><span class="header-section-number">8.0.2</span> MARIA DB<a href="administración-de-servicios.html#maria-db" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb95"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb95-1"><a href="administración-de-servicios.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf install mariadb-server</span>
+<span id="cb95-2"><a href="administración-de-servicios.html#cb95-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-3"><a href="administración-de-servicios.html#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl start mariadb</span>
+<span id="cb95-4"><a href="administración-de-servicios.html#cb95-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-5"><a href="administración-de-servicios.html#cb95-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl enable mariadb</span>
+<span id="cb95-6"><a href="administración-de-servicios.html#cb95-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-7"><a href="administración-de-servicios.html#cb95-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl status mariadb</span>
+<span id="cb95-8"><a href="administración-de-servicios.html#cb95-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-9"><a href="administración-de-servicios.html#cb95-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> firewalld-cmd <span class="at">--permanent</span> <span class="at">--add-port</span><span class="op">=</span>3300/tcp <span class="at">-zone</span><span class="op">=</span>public</span>
+<span id="cb95-10"><a href="administración-de-servicios.html#cb95-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-11"><a href="administración-de-servicios.html#cb95-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> firewalld-cmd <span class="at">--reload</span> </span>
+<span id="cb95-12"><a href="administración-de-servicios.html#cb95-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-13"><a href="administración-de-servicios.html#cb95-13" aria-hidden="true" tabindex="-1"></a><span class="ex">mysql_secure_installation</span> <span class="co"># y seguir las instrucciones</span></span></code></pre></div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="virtualización-e-instalación-de-redhatalmarockycentos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="administración-de-firewall.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="extras.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -13,3 +13,7 @@ output:
 # Prefacio {-}
 
 Este libro comenzó como las notas tomadas de cursos y materiales para la administración de servidores en linux, aún en desarollo.
+
+Algunas de las ideas y notas fueron tomadas de los cursos de [Udemy](https://www.udemy.com/):
+
+[Implementación de Servidores Linux (Módulo I)](https://www.udemy.com/course/implementacion-de-servidores-con-centos-linux/?referralCode=19897C4247C28C492241) e [Introducción a la Virtualización con VirtualBox](https://www.udemy.com/course/introduccion-a-la-virtualizacion/)

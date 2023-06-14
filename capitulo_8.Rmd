@@ -1,0 +1,58 @@
+# ADMINISTRACIÓN DE SERVICIOS
+
+Un servicio es un programa que se ejecuta de manera continua y permanente por lo general en segundo palno y tiene una funcionalidad específica.
+
+Estos son algunos ejemplos de algunos servicios Internos y de red:
+
+-   NetworkManager: interno: Controla interfaces y conexiones de red
+-   sshd : red: administración remota
+-   httpd : red : Servidor web
+-   crond : interno : Programas ejecución de tareas
+-   firewalld : interno : Administrar firewalld del sistema
+-   mysql : red : Administración de bases de datos
+
+`systemctl`es un componente del sistema que administra los servicios combinado con otro parámetro como start, stop, restart, reolad, enable, disable y status, nos permitirá iniciar, encender, apagar y permitir un servicio.
+
+Para verificar cuales están corriendose actualmente en el sistem:
+
+```{bash, eval=FALSE}
+systemctl list-units --type=service --state=running
+```
+
+Si se hace algún cambio o modificación como en el capítulo anterior debe reiniciarse el sistema para que se efectúen los cambios.
+
+```{bash, eval=FALSE}
+sudo systemctl restart sshd
+```
+
+Algunos ejemplos para la instalación de algunos de algunos servicios externos:
+
+### APACHE
+
+```{bash, eval=FALSE}
+sudo dnf install httpd
+
+sudo systemctl start httpd
+
+sudo systemctl enable httpd
+
+sudo systemctl status httpd
+```
+
+### MARIA DB
+
+```{bash, eval=FALSE}
+sudo dnf install mariadb-server
+
+sudo systemctl start mariadb
+
+sudo systemctl enable mariadb
+
+sudo systemctl status mariadb
+
+sudo firewalld-cmd --permanent --add-port=3300/tcp -zone=public
+
+sudo firewalld-cmd --reload 
+
+mysql_secure_installation # y seguir las instrucciones
+```

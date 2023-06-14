@@ -1,0 +1,81 @@
+# ADMINISTRACIÓN DE CONECTIVIDAD DE RED
+
+Para probar tu conectividad utilizamos el código `ping` que hace una comprobación de errores de red como ip duplicada (servidor con otro equipo), interfaz de red desconectada, direccción DNS, entre otros.
+
+```{bash}
+ping -c 3 www.google.com
+```
+
+Hay códigos que nos servirán para identifcar nuestras conexiones de red e identificar nuestas ips.
+
+```{bash}
+ip a s # ver todas
+```
+
+Como se puede ver hay varios tipos de redes, puede ser de la conexión local, por wifi o por cable ethernet.
+
+```{bash}
+ip a s enp0s31f6 # ver una en particular
+```
+
+```{bash}
+ip route show # ver ips
+```
+
+En caso de que se quiera desactivar o apagar una red en particular se puede hacer con los siguientes códigos:
+
+```{bash, eval=FALSE}
+sudo ip link set enp0s31f6 down # apagar
+```
+
+```{bash, eval=FALSE}
+sudo ip link set enp0s31f6 up # encender
+```
+
+Los archivos de configuración de ls redes se encuentran en: */etc/sysconfig/network-scripts*, en ubuntu es */etc/NetworkManager/system-connections/* . Anteriormente estos archivos se modificaban para configurar las redes, pero ya no está recomendado ahora se recomiendan herramientas administradoras de redes, tales como: **nmcli (cli), nmtui y control center (herramientas gráficas).**
+
+## NMCLI
+
+Es un gestor de línea de comandos que usualmente ya viene instalado.
+
+- Para revisar el estado de tus conexiones:
+
+```{bash}
+nmcli device status
+```
+
+- Si se desea prender o apagar una conexión:
+
+```{bash, eval=FALSE}
+nmcli con up enp0s31f6 #encender
+
+nmcli con down enp0s31f6 #apagar
+```
+
+- Para conocer más detalles de tus conexiones en particular puedes usar el código:
+
+```{bash}
+nmcli con show enp0s31f6
+```
+
+Si se quiere modificar algunos de estos parámetros detallados anteriormente, por ejemeplo:
+
+```{bash, eval=FALSE}
+sudo nmcli con modify enp0s31f6 ipv4.address 192.1.110/24
+
+sudo nmcli con modify enp0s31f6 ipv4.gateway 192.168.11
+
+sudo nmcli con modify enp0s31f6 ipv4.dns 8.8.8.8
+
+sudo nmcli con modify enp0s31f6 ipv4.method manual
+```
+
+Luego de hacer estos cambios se debe apagar y prender como el paso anterior:
+
+```{bash, eval=FALSE}
+nmcli con down enp0s31f6 #apagar
+
+nmcli con up enp0s31f6 #encender
+```
+
+

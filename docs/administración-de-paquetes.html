@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Manual administrador de Servidores</title>
-  <meta name="description" content="Manual administrador de Servidores" />
+  <title>6 ADMINISTRACIÓN DE PAQUETES | Manual administrador de Servidores</title>
+  <meta name="description" content="6 ADMINISTRACIÓN DE PAQUETES | Manual administrador de Servidores" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Manual administrador de Servidores" />
+  <meta property="og:title" content="6 ADMINISTRACIÓN DE PAQUETES | Manual administrador de Servidores" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="comunidadbioinfo/templado_bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Manual administrador de Servidores" />
+  <meta name="twitter:title" content="6 ADMINISTRACIÓN DE PAQUETES | Manual administrador de Servidores" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="virtualización-e-instalación-de-redhatalmarockycentos.html"/>
+<link rel="prev" href="administración-de-conectividad-de-red.html"/>
+<link rel="next" href="administración-de-firewall.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -205,15 +205,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Manual administrador de Servidores</h1>
-<p class="author"><em>Stephanie Hereira-Pacheco</em></p>
-</div>
-<div id="prefacio" class="section level1 unnumbered hasAnchor">
-<h1>Prefacio<a href="index.html#prefacio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Este libro comenzó como las notas tomadas de cursos y materiales para la administración de servidores en linux, aún en desarollo.</p>
-<p>Algunas de las ideas y notas fueron tomadas de los cursos de <a href="https://www.udemy.com/">Udemy</a>:</p>
-<p><a href="https://www.udemy.com/course/implementacion-de-servidores-con-centos-linux/?referralCode=19897C4247C28C492241">Implementación de Servidores Linux (Módulo I)</a> e <a href="https://www.udemy.com/course/introduccion-a-la-virtualizacion/">Introducción a la Virtualización con VirtualBox</a></p>
+<div id="administración-de-paquetes" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> ADMINISTRACIÓN DE PAQUETES<a href="administración-de-paquetes.html#administración-de-paquetes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dependiendo de la distribución es el administrador de paquetes. Para ubuntu es usualmente <code>apt</code>, para alma y red-hat es <code>dnf</code>para centOS era <code>yum</code> pero también puede instalarse el <code>dnf</code>.</p>
+<p>Los paquetes a descargar en centOS y redhat vienen en extensión .rpm en ubuntu en .deb.</p>
+<p>DNF viene instalado por defecto en alma linux y centOS actualmente también. “Dnf” es una herramienta de línea de comandos utilizada para instalar, actualizar y administrar paquetes en sistemas basados en RPM, como CentOS y AlmaLinux. Puedes usar el comando “dnf” para buscar paquetes, instalar software, actualizar el sistema y realizar otras operaciones
+relacionadas con la gestión de paquetes.</p>
+<p>Hay dos tipos de paquetes:</p>
+<ul>
+<li><p>BaseOS: El paquete BaseOS (Sistema Operativo Base) contiene los componentes esenciales del sistema operativo, como el kernel, las utilidades básicas del sistema y las bibliotecas fundamentales. Estos paquetes proporcionan la funcionalidad básica del sistema y son necesarios para su funcionamiento. El paquete BaseOS se actualiza con menos frecuencia que el paquete AppStream y está diseñado para ser estable y confiable.</p></li>
+<li><p>AppStream: El paquete AppStream (Flujo de Aplicaciones) contiene una amplia variedad de paquetes de aplicaciones y software adicional que se pueden instalar en el sistema. Estos paquetes incluyen aplicaciones de escritorio, bibliotecas adicionales, controladores de dispositivos, herramientas de desarrollo y otros complementos de software. El paquete AppStream se actualiza con más frecuencia y permite a los usuarios acceder a un conjunto más amplio de aplicaciones y funcionalidades. En otras palabras son paquetes adicionales o extras.</p></li>
+</ul>
+<p>Para consultar los paqutes instalados debemos usar el código:</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb79-1"><a href="administración-de-paquetes.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dnf</span> list installed <span class="kw">|</span> <span class="fu">head</span></span></code></pre></div>
+<pre><code>## bash: dnf: command not found</code></pre>
+<p>Para ver que paquetes están disponibles hay que consultar como superusuario así:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb81-1"><a href="administración-de-paquetes.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf list available</span></code></pre></div>
+<p>Para consultar uno en particular igual con superusuario:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb82-1"><a href="administración-de-paquetes.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf list tree</span></code></pre></div>
+<p>Para actualizar se puede usar:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb83-1"><a href="administración-de-paquetes.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf update</span>
+<span id="cb83-2"><a href="administración-de-paquetes.html#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-3"><a href="administración-de-paquetes.html#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf upgrade</span></code></pre></div>
+<p>“sudo dnf update” actualiza todos los paquetes a sus últimas versiones
+disponibles, mientras que “sudo dnf upgrade” también realiza una limpieza al eliminar paquetes obsoletos o no necesarios en el proceso de actualización. Ambos comandos son útiles para mantener el sistema actualizado y seguro.</p>
+<p>Para buscar o consultar sobre un paquete en particular poremos usar los siguientes códigos:</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb84-1"><a href="administración-de-paquetes.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf search php</span>
+<span id="cb84-2"><a href="administración-de-paquetes.html#cb84-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-3"><a href="administración-de-paquetes.html#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf info php</span></code></pre></div>
+<p>Para instalar o desintalar un paquete, usamos:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb85-1"><a href="administración-de-paquetes.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf install tar</span>
+<span id="cb85-2"><a href="administración-de-paquetes.html#cb85-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-3"><a href="administración-de-paquetes.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnfinstall <span class="at">-y</span> tar <span class="co"># para evitar preguntas</span></span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb86-1"><a href="administración-de-paquetes.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf remove tar <span class="at">-y</span></span></code></pre></div>
+<p>Y para actualizar un solo paquete en particular igual update o upgrade:</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb87-1"><a href="administración-de-paquetes.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf update tar <span class="co"># se actuliza nueva versión y se almacena el viejo</span></span>
+<span id="cb87-2"><a href="administración-de-paquetes.html#cb87-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-3"><a href="administración-de-paquetes.html#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf upgrade tar <span class="co"># se actualiza nueva versión y se elemina la anterior</span></span></code></pre></div>
 
 </div>
             </section>
@@ -221,8 +249,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="virtualización-e-instalación-de-redhatalmarockycentos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="administración-de-conectividad-de-red.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="administración-de-firewall.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

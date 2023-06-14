@@ -1,0 +1,102 @@
+# EXTRAS
+
+## CONCEPTOS CLAVES
+
+### LINUX Y DISTRIBUCIONES
+
+Linux es un sistema operativo de código abierto basado en Unix. Fue desarrollado originalmente por Linus Torvalds en 1991 y se ha convertido en uno de los sistemas operativos más populares y utilizados en el mundo.
+
+Linux se caracteriza por ser modular, flexible y altamente personalizable. Es conocido por su estabilidad, seguridad y rendimiento, y se utiliza en una amplia variedad de dispositivos y entornos, desde servidores y estaciones de trabajo hasta dispositivos móviles y sistemas integrados.
+
+Una distribución de Linux, también conocida como "distro", es una versión específica de Linux que incluye el núcleo de Linux, junto con una selección de aplicaciones, herramientas y paquetes de software adicionales. Las distribuciones de Linux se crean para satisfacer diferentes necesidades y preferencias de los usuarios, y pueden variar en términos de objetivos, enfoques de administración, conjuntos de aplicaciones, entornos de escritorio y soporte.
+
+Algunas de las distribuciones de Linux más conocidas son Ubuntu, Fedora, Debian, CentOS, Arch Linux, openSUSE, entre otras. Cada distribución tiene sus propias características, filosofía y comunidad de usuarios, lo que permite a los usuarios elegir la distribución que mejor se adapte a sus necesidades y preferencias.
+
+Para servidores se usan con frecuencia las distribuciones de Debian, RHEL (Redhat), Ubuntu y antes de ser descontinuado centOS. Las distribuciones gratuitas similares a RHEL son Alma y Rocky que funcionan muy similar y siguen las actualizaciones.
+
+### VIRTUALIZACIÓN
+
+El uso de la virtualización para la implementación de servidores Linux en considerada como una buena práctica en términos de seguridad ya que antes de ser aplicadas las configuraciones se pueden probar en una máquina virtual.
+
+### REDES Y TIPOS DE CONEXIONES
+
+#### NAT
+
+Las máquinas virtuales tienen acceso a redes externas al sistema anfitrión mediante el uso de NAT (Network address translation). Una IP de una red interna se traslada a una red de una IP externa para poder obtener comunicación hacia al exterior. Es una técnica utilizada en enrutadores o firewalls para permitir que varios dispositivos en una red privada compartan una única dirección IP pública. Cuando un dispositivo de la red privada envía una solicitud al exterior, la dirección IP de origen se reemplaza por la dirección IP pública del enrutador o firewall. De esta manera, se oculta la estructura de la red privada y se permite que múltiples dispositivos compartan la misma dirección IP pública.
+
+#### Red NAT
+
+En el contexto de las máquinas virtuales, una red NAT es una configuración de red virtual en la que la máquina virtual tiene acceso a una red externa a través de un enrutador virtual. El enrutador virtual realiza la traducción de direcciones de red, similar a NAT en un enrutador físico. La máquina virtual se conecta a la red externa utilizando una dirección IP virtual proporcionada por el enrutador virtual. Esto permite que la máquina virtual se comunique con recursos externos, como Internet, sin exponer directamente su dirección IP privada al exterior. En las máquinas debe virtuales para usar esta debe primero darse de alta y luedo dar Restart y poner diferentes IPs.
+
+#### Puente (Bridge)
+
+Se comportan como equipos físicos que se conectan al switch. Se integran como equipos adicionales dentro de la red local. La máquina se inegra a la red con servicios de mediano volumen. Esta configuración permite que la máquina virtual se comporte como si estuviera conectada directamente a la red física, lo que facilita la comunicación con otros dispositivos en la red.
+
+####  Solo anfitrión (Host-only)
+En esta configuración, la máquina virtual se conecta únicamente a una red virtual interna que existe solo entre el host y las máquinas virtuales. Las máquinas virtuales pueden comunicarse entre sí y con el host, pero no tienen acceso directo a la red física externa ni a otros dispositivos en la red. Esto proporciona un entorno de red aislado y seguro para las máquinas virtuales. No necesita salida al internet y ocupa pocos recursos.
+
+#### Red interna (Internal): En esta configuración, las máquinas virtuales se conectan a una red virtual interna que existe solo entre ellas, sin acceso a la red física del host ni a dispositivos externos. Las máquinas virtuales en la misma red interna pueden comunicarse entre sí, pero no pueden comunicarse con el host ni con otros dispositivos externos.
+
+### PORT FORWARDING
+
+La combinación de NAT y Port forwarding es muy usado en empresas y tiene beneficios de seguridad y administración. Una red NAT como lo vimos anteriormente, es una técnica mediante la cual un equipo en red facilita el acceso a internet a un grupo de equipos, intercambiando de manera temporal una IP privada por una IP pública. Esto se utiliza ampliamente en routers y firewalls tipo UTM. Desde afuera estas máquinas no son visibles, cualquier cosa que haga un usuario será a cargo de administador.
+
+El **port forwarding** es un mecanismo o técnica para aislar sistemas en red, por lo general servidores, de forma tal que el acceso de los servicios implementados requiere de un sistema intermediario. Este último equipo mantiene una relación de direcciones IP y puertos a los cuales deberán enviar las peticiones de servicio que él mismo recibe.
+
+Port forwarding (reenvío de puertos) es una técnica que permite redirigir el tráfico de red entrante desde un puerto específico de un dispositivo de red hacia otro dispositivo o servicio en la red local.
+
+Cuando un dispositivo recibe datos de red, generalmente utiliza puertos específicos para distinguir diferentes servicios o aplicaciones que se ejecutan en él. El reenvío de puertos permite que los datos entrantes que llegan a un puerto específico sean redirigidos hacia otro dispositivo o servicio en la red local, incluso si ese dispositivo se encuentra detrás de un enrutador o firewall.
+
+El reenvío de puertos es útil en escenarios como acceder a servicios en una red local desde Internet, permitir conexiones remotas a un servidor o configurar aplicaciones que requieren puertos específicos para funcionar correctamente.
+
+## EDITOR DE TEXTOS `vi`
+
+`vi` es un editor de texto muy común en sistemas Unix y se utiliza para editar y crear archivos de texto en la línea de comandos.
+
+Sin embargo, ten en cuenta que en algunas distribuciones de Linux, `vi` puede ser una versión básica del editor y es posible que prefieras utilizar un editor de texto más avanzado como `vim` (Vi Improved). Puedes instalar `vim` en Ubuntu y AlmaLinux utilizando el administrador de paquetes de la distribución correspondiente.
+
+Si deseas verificar si `vi` está instalado en tu sistema, puedes ejecutar el siguiente comando en la terminal:
+
+```{bash}
+vi --version
+```
+
+Antes de acceder a algunas de estas opciones recuerde debe presionar la tecla `ESC`.
+
+Opciones:
+
+-   i : insertar texto en posición actual
+
+-   a : insertar texto en posición siguiente
+
+-   o : insertar una nueva línea de la posición actual
+
+-   O : insertar una nueva línea sobre la posición actual
+
+-   dd : eliminar línea actual
+
+-   yy : copiar línea actual
+
+-   p : pegar texto
+
+-   cw : reemplazar palabra
+
+-   x : eliminar caracter primero
+
+-   u : deshacer
+
+Luego de presionar ESC + :, podemos tener más opciones, tales como:
+
+-   :w = guardar
+
+-   :q = salir de vi
+
+-   :wq = guardar y salir
+
+-   :q' = salir sin guardar
+
+-   :set nu/nonu = mostrar o no la numeración de las líneas
+
+-   /palabra = buscar "palabra" en texto
+
+-   :g = reemplazar o eliminar (:g/word/s//WORD/g, g/word/d)

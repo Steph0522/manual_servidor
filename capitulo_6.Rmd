@@ -1,0 +1,71 @@
+# ADMINISTRACIÓN DE PAQUETES
+
+Dependiendo de la distribución es el administrador de paquetes. Para ubuntu es usualmente `apt`, para alma y red-hat es `dnf`para centOS era `yum` pero también puede instalarse el `dnf`.
+
+Los paquetes a descargar en centOS y redhat vienen en extensión .rpm en ubuntu en .deb.
+
+DNF viene instalado por defecto en alma linux y centOS actualmente también. "Dnf" es una herramienta de línea de comandos utilizada para instalar, actualizar y administrar paquetes en sistemas basados en RPM, como CentOS y AlmaLinux. Puedes usar el comando "dnf" para buscar paquetes, instalar software, actualizar el sistema y realizar otras operaciones
+relacionadas con la gestión de paquetes.
+
+Hay dos tipos de paquetes:
+
+-   BaseOS: El paquete BaseOS (Sistema Operativo Base) contiene los componentes esenciales del sistema operativo, como el kernel, las utilidades básicas del sistema y las bibliotecas fundamentales. Estos paquetes proporcionan la funcionalidad básica del sistema y son necesarios para su funcionamiento. El paquete BaseOS se actualiza con menos frecuencia que el paquete AppStream y está diseñado para ser estable y confiable.
+
+-   AppStream: El paquete AppStream (Flujo de Aplicaciones) contiene una amplia variedad de paquetes de aplicaciones y software adicional que se pueden instalar en el sistema. Estos paquetes incluyen aplicaciones de escritorio, bibliotecas adicionales, controladores de dispositivos, herramientas de desarrollo y otros complementos de software. El paquete AppStream se actualiza con más frecuencia y permite a los usuarios acceder a un conjunto más amplio de aplicaciones y funcionalidades. En otras palabras son paquetes adicionales o extras.
+
+Para consultar los paqutes instalados debemos usar el código:
+
+```{bash}
+dnf list installed | head
+```
+
+Para ver que paquetes están disponibles hay que consultar como superusuario así:
+
+```{bash, eval=FALSE}
+sudo dnf list available
+```
+
+Para consultar uno en particular igual con superusuario:
+
+```{bash, eval=FALSE}
+sudo dnf list tree
+```
+
+Para actualizar se puede usar:
+
+```{bash, eval=FALSE}
+sudo dnf update
+
+sudo dnf upgrade
+```
+
+"sudo dnf update" actualiza todos los paquetes a sus últimas versiones
+disponibles, mientras que "sudo dnf upgrade" también realiza una limpieza al eliminar paquetes obsoletos o no necesarios en el proceso de actualización. Ambos comandos son útiles para mantener el sistema actualizado y seguro.
+
+Para buscar o consultar sobre un paquete en particular poremos usar los siguientes códigos:
+
+```{bash, eval=FALSE}
+sudo dnf search php
+
+sudo dnf info php
+```
+
+Para instalar o desintalar un paquete, usamos:
+
+```{bash, eval=FALSE}
+sudo dnf install tar
+
+sudo dnfinstall -y tar # para evitar preguntas
+```
+
+```{bash, eval=FALSE}
+sudo dnf remove tar -y
+```
+
+Y para actualizar un solo paquete en particular igual update o upgrade:
+
+```{bash, eval=FALSE}
+sudo dnf update tar # se actuliza nueva versión y se almacena el viejo
+
+sudo dnf upgrade tar # se actualiza nueva versión y se elemina la anterior
+```

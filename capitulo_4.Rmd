@@ -80,6 +80,21 @@ sudo useradd -s /sbin/nologin usuario3
 sudo useradd -G wheel usuario4
 ```
 
+### CREANDO UN NUEVO GRUPO
+
+Para crear un nuevo grupo:
+
+```{bash, eval=FALSE}
+sudo groupadd nuevo_grupo
+```
+
+Si se quiere cambiar el nombre de un grupo:
+
+```{bash, eval=FALSE}
+sudo groupmod -n nuevo_nombre_grupo nombre_actual_grupo
+```
+
+
 ### MODIFICANDO CUENTAS DE USUARIO
 
 -   Cambiar el directorio de un usuario

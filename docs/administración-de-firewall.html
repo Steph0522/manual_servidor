@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Manual administrador de Servidores</title>
-  <meta name="description" content="Manual administrador de Servidores" />
+  <title>7 ADMINISTRACIÓN DE FIREWALL | Manual administrador de Servidores</title>
+  <meta name="description" content="7 ADMINISTRACIÓN DE FIREWALL | Manual administrador de Servidores" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Manual administrador de Servidores" />
+  <meta property="og:title" content="7 ADMINISTRACIÓN DE FIREWALL | Manual administrador de Servidores" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="comunidadbioinfo/templado_bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Manual administrador de Servidores" />
+  <meta name="twitter:title" content="7 ADMINISTRACIÓN DE FIREWALL | Manual administrador de Servidores" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="virtualización-e-instalación-de-redhatalmarockycentos.html"/>
+<link rel="prev" href="administración-de-paquetes.html"/>
+<link rel="next" href="administración-de-servicios.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -205,15 +205,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Manual administrador de Servidores</h1>
-<p class="author"><em>Stephanie Hereira-Pacheco</em></p>
-</div>
-<div id="prefacio" class="section level1 unnumbered hasAnchor">
-<h1>Prefacio<a href="index.html#prefacio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Este libro comenzó como las notas tomadas de cursos y materiales para la administración de servidores en linux, aún en desarollo.</p>
-<p>Algunas de las ideas y notas fueron tomadas de los cursos de <a href="https://www.udemy.com/">Udemy</a>:</p>
-<p><a href="https://www.udemy.com/course/implementacion-de-servidores-con-centos-linux/?referralCode=19897C4247C28C492241">Implementación de Servidores Linux (Módulo I)</a> e <a href="https://www.udemy.com/course/introduccion-a-la-virtualizacion/">Introducción a la Virtualización con VirtualBox</a></p>
+<div id="administración-de-firewall" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> ADMINISTRACIÓN DE FIREWALL<a href="administración-de-firewall.html#administración-de-firewall" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><code>systemctl</code> es una herramienta de línea de comandos utilizada en sistemas Linux que se adhieren al estándar de inicio y administración del sistema systemd. systemd es un sistema init ampliamente adoptado en distribuciones modernas de Linux, como Ubuntu, CentOS, Fedora, entre otras.</p>
+<p><code>systemctl</code> se utiliza para controlar el sistema init y gestionar los servicios del sistema, permitiendo iniciar, detener, reiniciar, habilitar o deshabilitar servicios. También proporciona información sobre el estado de los servicios y registros asociados. Con <code>systemctl,</code> puedes administrar tanto servicios del sistema como servicios de usuario.</p>
+<p><code>systemctl</code> puede usarse para verificar y administrar el firewall. Un firewall, en el contexto de la informática y la seguridad de redes, es una barrera de seguridad que controla y regula el tráfico de red entre redes o sistemas. Su función principal es proteger los sistemas y redes de posibles amenazas provenientes de redes externas o internas no confiables.</p>
+<p>Algunos códigos para checar el estado del firewall y reiniciarlo, son:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb88-1"><a href="administración-de-firewall.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl status firewalld</span>
+<span id="cb88-2"><a href="administración-de-firewall.html#cb88-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-3"><a href="administración-de-firewall.html#cb88-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart firewalld</span></code></pre></div>
+<p><code>firewall-cmd</code> es una interfaz de línea de comandos utilizada para administrar y configurar el firewall en sistemas operativos basados en Linux que utilizan el firewall <code>firewalld</code>.</p>
+<p>Algunos códigos para ver tus firewalls son:</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb89-1"><a href="administración-de-firewall.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> firewall-cmd <span class="at">--list-all</span></span>
+<span id="cb89-2"><a href="administración-de-firewall.html#cb89-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-3"><a href="administración-de-firewall.html#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> firewall-cmd <span class="at">--get-services</span> <span class="kw">|</span> <span class="fu">grep</span> ssh <span class="co"># para ver si está</span></span></code></pre></div>
+<p>Verificar quienes están conectados por ssh:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb90-1"><a href="administración-de-firewall.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ss</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-i</span> ssh</span></code></pre></div>
+<p>Para modificar algunos parámetros igual se usa firewall-cmd, algunos ejemplos:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb91-1"><a href="administración-de-firewall.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> firewall-cmd <span class="at">--permanent</span> <span class="at">--remove-service</span><span class="op">=</span>ssh <span class="co"># remover ssh</span></span>
+<span id="cb91-2"><a href="administración-de-firewall.html#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-3"><a href="administración-de-firewall.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> firewall-cmd <span class="at">--permanent</span> <span class="at">--add-rich-rule</span><span class="op">=</span><span class="st">&#39;rule family ipv4 source addres=192.168.1.108, service name = ssh accept&#39;</span> <span class="co"># hacer que sólo este equipo puede conectarse por ssh</span></span></code></pre></div>
 
 </div>
             </section>
@@ -221,8 +232,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="virtualización-e-instalación-de-redhatalmarockycentos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="administración-de-paquetes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="administración-de-servicios.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
